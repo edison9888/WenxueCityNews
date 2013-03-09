@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B5353E0616EB3D0E00A69DA8 /* ic_launcher1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5353E0516EB3D0E00A69DA8 /* ic_launcher1.png */; };
+		B5353E0816EB3D1500A69DA8 /* ic_launcher2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5353E0716EB3D1500A69DA8 /* ic_launcher2.png */; };
+		B5353E0A16EB3D3000A69DA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */; };
+		B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */; };
+		B576CC5F16EB3CA700A4BA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC5E16EB3CA700A4BA11 /* UIKit.framework */; };
+		B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6016EB3CA700A4BA11 /* Foundation.framework */; };
+		B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6216EB3CA700A4BA11 /* CoreGraphics.framework */; };
+		B576CC6516EB3CA700A4BA11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6416EB3CA700A4BA11 /* CoreData.framework */; };
+		B576CC6B16EB3CA700A4BA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */; };
+		B576CC6D16EB3CA700A4BA11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC6C16EB3CA700A4BA11 /* main.m */; };
+		B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC7016EB3CA700A4BA11 /* KRAppDelegate.m */; };
+		B576CC7316EB3CA700A4BA11 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7216EB3CA700A4BA11 /* Default.png */; };
+		B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7416EB3CA700A4BA11 /* Default@2x.png */; };
+		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
+		B576CC7A16EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */; };
+		B576CC8216EB3CA700A4BA11 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */; };
+		B576CC8316EB3CA700A4BA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC5E16EB3CA700A4BA11 /* UIKit.framework */; };
+		B576CC8416EB3CA700A4BA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6016EB3CA700A4BA11 /* Foundation.framework */; };
+		B576CC8516EB3CA700A4BA11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6416EB3CA700A4BA11 /* CoreData.framework */; };
+		B576CC8D16EB3CA700A4BA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */; };
+		B576CC9016EB3CA700A4BA11 /* WenxueCityNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B576CC8616EB3CA700A4BA11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B576CC5316EB3CA700A4BA11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B576CC5A16EB3CA700A4BA11;
+			remoteInfo = WenxueCityNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B5353E0516EB3D0E00A69DA8 /* ic_launcher1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher1.png; sourceTree = "<group>"; };
+		B5353E0716EB3D1500A69DA8 /* ic_launcher2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher2.png; sourceTree = "<group>"; };
+		B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B5353E0C16EB3E4600A69DA8 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WenxueCityNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B576CC5E16EB3CA700A4BA11 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B576CC6016EB3CA700A4BA11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B576CC6216EB3CA700A4BA11 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B576CC6416EB3CA700A4BA11 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B576CC6816EB3CA700A4BA11 /* WenxueCityNews-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WenxueCityNews-Info.plist"; sourceTree = "<group>"; };
+		B576CC6A16EB3CA700A4BA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B576CC6C16EB3CA700A4BA11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B576CC6E16EB3CA700A4BA11 /* WenxueCityNews-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WenxueCityNews-Prefix.pch"; sourceTree = "<group>"; };
+		B576CC6F16EB3CA700A4BA11 /* KRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRAppDelegate.h; sourceTree = "<group>"; };
+		B576CC7016EB3CA700A4BA11 /* KRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRAppDelegate.m; sourceTree = "<group>"; };
+		B576CC7216EB3CA700A4BA11 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B576CC7416EB3CA700A4BA11 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
+		B576CC8016EB3CA700A4BA11 /* WenxueCityNewsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WenxueCityNewsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B576CC8A16EB3CA700A4BA11 /* WenxueCityNewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WenxueCityNewsTests-Info.plist"; sourceTree = "<group>"; };
+		B576CC8C16EB3CA700A4BA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B576CC8E16EB3CA700A4BA11 /* WenxueCityNewsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WenxueCityNewsTests.h; sourceTree = "<group>"; };
+		B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WenxueCityNewsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B576CC5816EB3CA700A4BA11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5353E0A16EB3D3000A69DA8 /* QuartzCore.framework in Frameworks */,
+				B576CC5F16EB3CA700A4BA11 /* UIKit.framework in Frameworks */,
+				B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */,
+				B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */,
+				B576CC6516EB3CA700A4BA11 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B576CC7C16EB3CA700A4BA11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B576CC8216EB3CA700A4BA11 /* SenTestingKit.framework in Frameworks */,
+				B576CC8316EB3CA700A4BA11 /* UIKit.framework in Frameworks */,
+				B576CC8416EB3CA700A4BA11 /* Foundation.framework in Frameworks */,
+				B576CC8516EB3CA700A4BA11 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B5353E0B16EB3E4600A69DA8 /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				B5353E0C16EB3E4600A69DA8 /* ODRefreshControl.h */,
+				B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
+		B576CC5216EB3CA700A4BA11 = {
+			isa = PBXGroup;
+			children = (
+				B5353E0B16EB3E4600A69DA8 /* ODRefreshControl */,
+				B5353E0716EB3D1500A69DA8 /* ic_launcher2.png */,
+				B5353E0516EB3D0E00A69DA8 /* ic_launcher1.png */,
+				B576CC6616EB3CA700A4BA11 /* WenxueCityNews */,
+				B576CC8816EB3CA700A4BA11 /* WenxueCityNewsTests */,
+				B576CC5D16EB3CA700A4BA11 /* Frameworks */,
+				B576CC5C16EB3CA700A4BA11 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B576CC5C16EB3CA700A4BA11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */,
+				B576CC8016EB3CA700A4BA11 /* WenxueCityNewsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B576CC5D16EB3CA700A4BA11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */,
+				B576CC5E16EB3CA700A4BA11 /* UIKit.framework */,
+				B576CC6016EB3CA700A4BA11 /* Foundation.framework */,
+				B576CC6216EB3CA700A4BA11 /* CoreGraphics.framework */,
+				B576CC6416EB3CA700A4BA11 /* CoreData.framework */,
+				B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B576CC6616EB3CA700A4BA11 /* WenxueCityNews */ = {
+			isa = PBXGroup;
+			children = (
+				B576CC6F16EB3CA700A4BA11 /* KRAppDelegate.h */,
+				B576CC7016EB3CA700A4BA11 /* KRAppDelegate.m */,
+				B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */,
+				B576CC6716EB3CA700A4BA11 /* Supporting Files */,
+			);
+			path = WenxueCityNews;
+			sourceTree = "<group>";
+		};
+		B576CC6716EB3CA700A4BA11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B576CC6816EB3CA700A4BA11 /* WenxueCityNews-Info.plist */,
+				B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */,
+				B576CC6C16EB3CA700A4BA11 /* main.m */,
+				B576CC6E16EB3CA700A4BA11 /* WenxueCityNews-Prefix.pch */,
+				B576CC7216EB3CA700A4BA11 /* Default.png */,
+				B576CC7416EB3CA700A4BA11 /* Default@2x.png */,
+				B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B576CC8816EB3CA700A4BA11 /* WenxueCityNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B576CC8E16EB3CA700A4BA11 /* WenxueCityNewsTests.h */,
+				B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */,
+				B576CC8916EB3CA700A4BA11 /* Supporting Files */,
+			);
+			path = WenxueCityNewsTests;
+			sourceTree = "<group>";
+		};
+		B576CC8916EB3CA700A4BA11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B576CC8A16EB3CA700A4BA11 /* WenxueCityNewsTests-Info.plist */,
+				B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B576CC5A16EB3CA700A4BA11 /* WenxueCityNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B576CC9316EB3CA700A4BA11 /* Build configuration list for PBXNativeTarget "WenxueCityNews" */;
+			buildPhases = (
+				B576CC5716EB3CA700A4BA11 /* Sources */,
+				B576CC5816EB3CA700A4BA11 /* Frameworks */,
+				B576CC5916EB3CA700A4BA11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WenxueCityNews;
+			productName = WenxueCityNews;
+			productReference = B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B576CC7F16EB3CA700A4BA11 /* WenxueCityNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B576CC9616EB3CA700A4BA11 /* Build configuration list for PBXNativeTarget "WenxueCityNewsTests" */;
+			buildPhases = (
+				B576CC7B16EB3CA700A4BA11 /* Sources */,
+				B576CC7C16EB3CA700A4BA11 /* Frameworks */,
+				B576CC7D16EB3CA700A4BA11 /* Resources */,
+				B576CC7E16EB3CA700A4BA11 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B576CC8716EB3CA700A4BA11 /* PBXTargetDependency */,
+			);
+			name = WenxueCityNewsTests;
+			productName = WenxueCityNewsTests;
+			productReference = B576CC8016EB3CA700A4BA11 /* WenxueCityNewsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B576CC5316EB3CA700A4BA11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KR;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Haihua Xiao";
+			};
+			buildConfigurationList = B576CC5616EB3CA700A4BA11 /* Build configuration list for PBXProject "WenxueCityNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B576CC5216EB3CA700A4BA11;
+			productRefGroup = B576CC5C16EB3CA700A4BA11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B576CC5A16EB3CA700A4BA11 /* WenxueCityNews */,
+				B576CC7F16EB3CA700A4BA11 /* WenxueCityNewsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B576CC5916EB3CA700A4BA11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B576CC6B16EB3CA700A4BA11 /* InfoPlist.strings in Resources */,
+				B576CC7316EB3CA700A4BA11 /* Default.png in Resources */,
+				B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */,
+				B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */,
+				B5353E0616EB3D0E00A69DA8 /* ic_launcher1.png in Resources */,
+				B5353E0816EB3D1500A69DA8 /* ic_launcher2.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B576CC7D16EB3CA700A4BA11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B576CC8D16EB3CA700A4BA11 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B576CC7E16EB3CA700A4BA11 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B576CC5716EB3CA700A4BA11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B576CC6D16EB3CA700A4BA11 /* main.m in Sources */,
+				B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */,
+				B576CC7A16EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld in Sources */,
+				B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B576CC7B16EB3CA700A4BA11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B576CC9016EB3CA700A4BA11 /* WenxueCityNewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B576CC8716EB3CA700A4BA11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B576CC5A16EB3CA700A4BA11 /* WenxueCityNews */;
+			targetProxy = B576CC8616EB3CA700A4BA11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B576CC6A16EB3CA700A4BA11 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B576CC8C16EB3CA700A4BA11 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B576CC9116EB3CA700A4BA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B576CC9216EB3CA700A4BA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B576CC9416EB3CA700A4BA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
+				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B576CC9516EB3CA700A4BA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
+				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B576CC9716EB3CA700A4BA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WenxueCityNews.app/WenxueCityNews";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
+				INFOPLIST_FILE = "WenxueCityNewsTests/WenxueCityNewsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B576CC9816EB3CA700A4BA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WenxueCityNews.app/WenxueCityNews";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
+				INFOPLIST_FILE = "WenxueCityNewsTests/WenxueCityNewsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B576CC5616EB3CA700A4BA11 /* Build configuration list for PBXProject "WenxueCityNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B576CC9116EB3CA700A4BA11 /* Debug */,
+				B576CC9216EB3CA700A4BA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B576CC9316EB3CA700A4BA11 /* Build configuration list for PBXNativeTarget "WenxueCityNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B576CC9416EB3CA700A4BA11 /* Debug */,
+				B576CC9516EB3CA700A4BA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B576CC9616EB3CA700A4BA11 /* Build configuration list for PBXNativeTarget "WenxueCityNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B576CC9716EB3CA700A4BA11 /* Debug */,
+				B576CC9816EB3CA700A4BA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */,
+			);
+			currentVersion = B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */;
+			path = WenxueCityNews.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B576CC5316EB3CA700A4BA11 /* Project object */;
+}
