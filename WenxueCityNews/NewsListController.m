@@ -1,13 +1,13 @@
 //
-//  ViewController.m
-//  ODRefreshControlDemo
+//  NewsListController.m
 //
-//  Created by Fabio Ritrovato on 7/4/12.
-//  Copyright (c) 2012 orange in a day. All rights reserved.
+//  Created by Haihua Xiao on 13-3-10.
+//  Copyright (c) 2013年 Haihua Xiao. All rights reserved.
 //
 
 #import "NewsListController.h"
 #import "ODRefreshControl.h"
+#import "KRNewsService.h"
 
 @implementation NewsListController
 
@@ -19,6 +19,9 @@
         UINavigationItem *n = [self navigationItem];
         
         [n setTitle:NSLocalizedString(@"文学城新闻", @"appTitle")];
+        
+        KRNewsService *newsService = [[KRNewsService alloc] init];
+        [newsService loadNews];
     }
     return self;
 }

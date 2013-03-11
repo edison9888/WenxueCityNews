@@ -39,7 +39,12 @@
 		B576CC8516EB3CA700A4BA11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6416EB3CA700A4BA11 /* CoreData.framework */; };
 		B576CC8D16EB3CA700A4BA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */; };
 		B576CC9016EB3CA700A4BA11 /* WenxueCityNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */; };
+		B58BD49D16EE052F00B16A4B /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B58BD49C16EE052F00B16A4B /* launch1.png */; };
 		B58BE4DC16EC0FD3004C1365 /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B58BE4DB16EC0FD3004C1365 /* KRNewsService.m */; };
+		B5CCE0CD16EE08C000DD727C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0CC16EE08C000DD727C /* Default.png */; };
+		B5CCE0CF16EE08CD00DD727C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0CE16EE08CD00DD727C /* Default@2x.png */; };
+		B5CCE0D116EE08D500DD727C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D016EE08D500DD727C /* Default-568h@2x.png */; };
+		B5CCE0D316EE08E500DD727C /* launch2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D216EE08E500DD727C /* launch2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,8 +107,13 @@
 		B576CC8C16EB3CA700A4BA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B576CC8E16EB3CA700A4BA11 /* WenxueCityNewsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WenxueCityNewsTests.h; sourceTree = "<group>"; };
 		B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WenxueCityNewsTests.m; sourceTree = "<group>"; };
+		B58BD49C16EE052F00B16A4B /* launch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch1.png; sourceTree = "<group>"; };
 		B58BE4DA16EC0FD3004C1365 /* KRNewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNewsService.h; path = ../KRNewsService.h; sourceTree = "<group>"; };
 		B58BE4DB16EC0FD3004C1365 /* KRNewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNewsService.m; path = ../KRNewsService.m; sourceTree = "<group>"; };
+		B5CCE0CC16EE08C000DD727C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B5CCE0CE16EE08CD00DD727C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B5CCE0D016EE08D500DD727C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B5CCE0D216EE08E500DD727C /* launch2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +190,11 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
+				B5CCE0D216EE08E500DD727C /* launch2.png */,
+				B5CCE0D016EE08D500DD727C /* Default-568h@2x.png */,
+				B5CCE0CE16EE08CD00DD727C /* Default@2x.png */,
+				B5CCE0CC16EE08C000DD727C /* Default.png */,
+				B58BD49C16EE052F00B16A4B /* launch1.png */,
 				B5353E3216EB6DFA00A69DA8 /* Base64 */,
 				B5353E1516EB6C3600A69DA8 /* AFNetworking */,
 				B5353E0B16EB3E4600A69DA8 /* ODRefreshControl */,
@@ -191,6 +206,7 @@
 				B576CC5C16EB3CA700A4BA11 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		B576CC5C16EB3CA700A4BA11 /* Products */ = {
 			isa = PBXGroup;
@@ -340,6 +356,11 @@
 				B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */,
 				B5353E0616EB3D0E00A69DA8 /* ic_launcher1.png in Resources */,
 				B5353E0816EB3D1500A69DA8 /* ic_launcher2.png in Resources */,
+				B58BD49D16EE052F00B16A4B /* launch1.png in Resources */,
+				B5CCE0CD16EE08C000DD727C /* Default.png in Resources */,
+				B5CCE0CF16EE08CD00DD727C /* Default@2x.png in Resources */,
+				B5CCE0D116EE08D500DD727C /* Default-568h@2x.png in Resources */,
+				B5CCE0D316EE08E500DD727C /* launch2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
