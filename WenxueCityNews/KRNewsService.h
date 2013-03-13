@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface KRNewsService : NSObject
-- (void)loadNews;
+- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(NSArray *newsArray, NSError *error))handler;
+
 @end

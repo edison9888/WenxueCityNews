@@ -7,6 +7,8 @@
 
 #import "NewsListController.h"
 #import "ODRefreshControl.h"
+#import "KRNewsStore.h"
+#import "KRNews.h"
 #import "KRNewsService.h"
 
 @implementation NewsListController
@@ -19,11 +21,14 @@
         UINavigationItem *n = [self navigationItem];
         
         [n setTitle:NSLocalizedString(@"文学城新闻", @"appTitle")];
-        
-        KRNewsService *newsService = [[KRNewsService alloc] init];
-        [newsService loadNews];
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
 }
 
 - (void)viewDidLoad
@@ -32,6 +37,14 @@
     
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+        
+    KRNewsService *newsService = [[KRNewsService alloc] init];
+    [newsService loadNews:0 to:0 max: 100 withHandler:^(NSArray *newsArray, NSError *error) {
+        for (id news in newsArray)
+        {
+            [[KRNewsStore sharedStore] addItem: news];
+        }
+    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -45,11 +58,31 @@
 
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
+    NSLog(@"Starting refreshing...");
     double delayInSeconds = 3.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing];
     });
 }
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [[[KRNewsStore sharedStore] allItems] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KRNews *news = [[[KRNewsStore sharedStore] allItems]
+                  objectAtIndex:[indexPath row]];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    [[cell textLabel] setText:[news title]];
+    
+    return cell;
+}
+
 
 @end

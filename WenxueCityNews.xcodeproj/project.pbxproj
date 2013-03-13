@@ -37,10 +37,13 @@
 		B576CC8516EB3CA700A4BA11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6416EB3CA700A4BA11 /* CoreData.framework */; };
 		B576CC8D16EB3CA700A4BA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */; };
 		B576CC9016EB3CA700A4BA11 /* WenxueCityNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */; };
+		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
+		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
 		B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CCE0D716EE17A900DD727C /* KRNewsService.m */; };
 		B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D916EE17BA00DD727C /* launch1.png */; };
 		B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0DB16EE17C000DD727C /* launch2.png */; };
+		B5CF406916F0BAFD002B53C9 /* KRNewsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,11 +104,16 @@
 		B576CC8C16EB3CA700A4BA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B576CC8E16EB3CA700A4BA11 /* WenxueCityNewsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WenxueCityNewsTests.h; sourceTree = "<group>"; };
 		B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WenxueCityNewsTests.m; sourceTree = "<group>"; };
+		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
+		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
+		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5CCE0D616EE17A900DD727C /* KRNewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsService.h; sourceTree = "<group>"; };
 		B5CCE0D716EE17A900DD727C /* KRNewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsService.m; sourceTree = "<group>"; };
 		B5CCE0D916EE17BA00DD727C /* launch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch1.png; sourceTree = "<group>"; };
 		B5CCE0DB16EE17C000DD727C /* launch2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch2.png; sourceTree = "<group>"; };
+		B5CF406716F0BAFC002B53C9 /* KRNewsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsStore.h; sourceTree = "<group>"; };
+		B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,7 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
+				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CCE0DB16EE17C000DD727C /* launch2.png */,
 				B5CCE0D916EE17BA00DD727C /* launch1.png */,
 				B5CCE0D416EE170900DD727C /* README.md */,
@@ -229,6 +238,10 @@
 				B576CC7016EB3CA700A4BA11 /* KRAppDelegate.m */,
 				B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */,
 				B576CC6716EB3CA700A4BA11 /* Supporting Files */,
+				B58CE98916F0AB2200EC27EA /* KRNews.h */,
+				B58CE98A16F0AB2200EC27EA /* KRNews.m */,
+				B5CF406716F0BAFC002B53C9 /* KRNewsStore.h */,
+				B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */,
 			);
 			path = WenxueCityNews;
 			sourceTree = "<group>";
@@ -395,6 +408,9 @@
 				B5353E3116EB6C3600A69DA8 /* UIImageView+AFNetworking.m in Sources */,
 				B5353E3516EB6DFA00A69DA8 /* Base64.m in Sources */,
 				B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */,
+				B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */,
+				B5CF406916F0BAFD002B53C9 /* KRNewsStore.m in Sources */,
+				B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +609,16 @@
 				B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */,
 			);
 			currentVersion = B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */;
+			path = WenxueCityNews.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */,
+			);
+			currentVersion = B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */;
 			path = WenxueCityNews.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
