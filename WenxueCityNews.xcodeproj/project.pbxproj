@@ -31,12 +31,6 @@
 		B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7416EB3CA700A4BA11 /* Default@2x.png */; };
 		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
 		B576CC7A16EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */; };
-		B576CC8216EB3CA700A4BA11 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */; };
-		B576CC8316EB3CA700A4BA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC5E16EB3CA700A4BA11 /* UIKit.framework */; };
-		B576CC8416EB3CA700A4BA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6016EB3CA700A4BA11 /* Foundation.framework */; };
-		B576CC8516EB3CA700A4BA11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6416EB3CA700A4BA11 /* CoreData.framework */; };
-		B576CC8D16EB3CA700A4BA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */; };
-		B576CC9016EB3CA700A4BA11 /* WenxueCityNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */; };
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
@@ -45,16 +39,6 @@
 		B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0DB16EE17C000DD727C /* launch2.png */; };
 		B5CF406916F0BAFD002B53C9 /* KRNewsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B576CC8616EB3CA700A4BA11 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B576CC5316EB3CA700A4BA11 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B576CC5A16EB3CA700A4BA11;
-			remoteInfo = WenxueCityNews;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -98,12 +82,7 @@
 		B576CC7416EB3CA700A4BA11 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
-		B576CC8016EB3CA700A4BA11 /* WenxueCityNewsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WenxueCityNewsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B576CC8A16EB3CA700A4BA11 /* WenxueCityNewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WenxueCityNewsTests-Info.plist"; sourceTree = "<group>"; };
-		B576CC8C16EB3CA700A4BA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B576CC8E16EB3CA700A4BA11 /* WenxueCityNewsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WenxueCityNewsTests.h; sourceTree = "<group>"; };
-		B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WenxueCityNewsTests.m; sourceTree = "<group>"; };
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
@@ -126,17 +105,6 @@
 				B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */,
 				B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */,
 				B576CC6516EB3CA700A4BA11 /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B576CC7C16EB3CA700A4BA11 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B576CC8216EB3CA700A4BA11 /* SenTestingKit.framework in Frameworks */,
-				B576CC8316EB3CA700A4BA11 /* UIKit.framework in Frameworks */,
-				B576CC8416EB3CA700A4BA11 /* Foundation.framework in Frameworks */,
-				B576CC8516EB3CA700A4BA11 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +166,6 @@
 				B5353E1516EB6C3600A69DA8 /* AFNetworking */,
 				B5353E0B16EB3E4600A69DA8 /* ODRefreshControl */,
 				B576CC6616EB3CA700A4BA11 /* WenxueCityNews */,
-				B576CC8816EB3CA700A4BA11 /* WenxueCityNewsTests */,
 				B576CC5D16EB3CA700A4BA11 /* Frameworks */,
 				B576CC5C16EB3CA700A4BA11 /* Products */,
 			);
@@ -209,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */,
-				B576CC8016EB3CA700A4BA11 /* WenxueCityNewsTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,25 +226,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B576CC8816EB3CA700A4BA11 /* WenxueCityNewsTests */ = {
-			isa = PBXGroup;
-			children = (
-				B576CC8E16EB3CA700A4BA11 /* WenxueCityNewsTests.h */,
-				B576CC8F16EB3CA700A4BA11 /* WenxueCityNewsTests.m */,
-				B576CC8916EB3CA700A4BA11 /* Supporting Files */,
-			);
-			path = WenxueCityNewsTests;
-			sourceTree = "<group>";
-		};
-		B576CC8916EB3CA700A4BA11 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B576CC8A16EB3CA700A4BA11 /* WenxueCityNewsTests-Info.plist */,
-				B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,25 +245,6 @@
 			productName = WenxueCityNews;
 			productReference = B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */;
 			productType = "com.apple.product-type.application";
-		};
-		B576CC7F16EB3CA700A4BA11 /* WenxueCityNewsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B576CC9616EB3CA700A4BA11 /* Build configuration list for PBXNativeTarget "WenxueCityNewsTests" */;
-			buildPhases = (
-				B576CC7B16EB3CA700A4BA11 /* Sources */,
-				B576CC7C16EB3CA700A4BA11 /* Frameworks */,
-				B576CC7D16EB3CA700A4BA11 /* Resources */,
-				B576CC7E16EB3CA700A4BA11 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B576CC8716EB3CA700A4BA11 /* PBXTargetDependency */,
-			);
-			name = WenxueCityNewsTests;
-			productName = WenxueCityNewsTests;
-			productReference = B576CC8016EB3CA700A4BA11 /* WenxueCityNewsTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -341,7 +269,6 @@
 			projectRoot = "";
 			targets = (
 				B576CC5A16EB3CA700A4BA11 /* WenxueCityNews */,
-				B576CC7F16EB3CA700A4BA11 /* WenxueCityNewsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -361,31 +288,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B576CC7D16EB3CA700A4BA11 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B576CC8D16EB3CA700A4BA11 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B576CC7E16EB3CA700A4BA11 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B576CC5716EB3CA700A4BA11 /* Sources */ = {
@@ -414,37 +317,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B576CC7B16EB3CA700A4BA11 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B576CC9016EB3CA700A4BA11 /* WenxueCityNewsTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B576CC8716EB3CA700A4BA11 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B576CC5A16EB3CA700A4BA11 /* WenxueCityNews */;
-			targetProxy = B576CC8616EB3CA700A4BA11 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B576CC6A16EB3CA700A4BA11 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B576CC8B16EB3CA700A4BA11 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B576CC8C16EB3CA700A4BA11 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -536,40 +415,6 @@
 			};
 			name = Release;
 		};
-		B576CC9716EB3CA700A4BA11 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WenxueCityNews.app/WenxueCityNews";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
-				INFOPLIST_FILE = "WenxueCityNewsTests/WenxueCityNewsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		B576CC9816EB3CA700A4BA11 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WenxueCityNews.app/WenxueCityNews";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
-				INFOPLIST_FILE = "WenxueCityNewsTests/WenxueCityNewsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -587,15 +432,6 @@
 			buildConfigurations = (
 				B576CC9416EB3CA700A4BA11 /* Debug */,
 				B576CC9516EB3CA700A4BA11 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B576CC9616EB3CA700A4BA11 /* Build configuration list for PBXNativeTarget "WenxueCityNewsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B576CC9716EB3CA700A4BA11 /* Debug */,
-				B576CC9816EB3CA700A4BA11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

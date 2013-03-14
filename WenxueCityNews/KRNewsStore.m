@@ -8,7 +8,8 @@
 
 #import "KRNewsStore.h"
 #import "KRNews.h"
-#import "KRNewsService.h"
+#import "Base64.h"
+#import "AFJSONRequestOperation.h"
 
 @implementation KRNewsStore
 
@@ -31,7 +32,7 @@
 {
     self = [super init];
     if(self) {
-        // Read in Homepwner.xcdatamodeld
+        // Read in WenxueCityNews.xcdatamodeld
         model = [NSManagedObjectModel mergedModelFromBundles:nil];
         // NSLog(@"model = %@", model);
         
@@ -74,8 +75,8 @@
         [request setEntity:e];
         
         NSSortDescriptor *sd = [NSSortDescriptor
-                                sortDescriptorWithKey:@"orderingValue"
-                                ascending:YES];
+                                sortDescriptorWithKey:@"newsId"
+                                ascending:NO];
         [request setSortDescriptors:[NSArray arrayWithObject:sd]];
         
         NSError *error;
@@ -126,6 +127,33 @@
 - (NSArray *)allItems
 {
     return allItems;
+}
+
+- (void) loadNews: (int)from to:(int)to max:(int)max
+{
+    NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
+    NSURL* targetUrl = [[NSURL alloc] initWithString: url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:targetUrl];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSMutableArray *jsonNewsArray = [JSON mutableArrayValueForKey:@"newsList"];
+        NSLog(@"%d news fetched", [jsonNewsArray count]);
+        for (id jsonNews in jsonNewsArray)
+        {
+            NSString *newsId = [jsonNews valueForKeyPath:@"id"];
+            NSString *title = [jsonNews valueForKeyPath:@"title"];
+            NSString *content = [jsonNews valueForKeyPath:@"content"];
+            
+            KRNews *news = [NSEntityDescription insertNewObjectForEntityForName:@"KRNews"
+                                                      inManagedObjectContext:context];
+            [news setNewsId:100];
+            [news setTitle:[title base64DecodedString]];
+            [news setContent:[content base64DecodedString]];
+            [self addItem:news];
+        }
+    } failure:nil];
+    
+    [operation start];
 }
 
 @end

@@ -38,13 +38,7 @@
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
         
-    KRNewsService *newsService = [[KRNewsService alloc] init];
-    [newsService loadNews:0 to:0 max: 100 withHandler:^(NSArray *newsArray, NSError *error) {
-        for (id news in newsArray)
-        {
-            [[KRNewsStore sharedStore] addItem: news];
-        }
-    }];
+    [[KRNewsStore sharedStore] loadNews:0 to:0 max:100];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

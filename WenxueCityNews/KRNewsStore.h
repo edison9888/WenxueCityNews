@@ -33,4 +33,6 @@
 
 - (void)loadAllItems;
 
+- (void) loadNews: (int)from to:(int)to max:(int)max;
+
 @end
