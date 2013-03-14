@@ -34,10 +34,9 @@
     if(self) {
         // Read in WenxueCityNews.xcdatamodeld
         model = [NSManagedObjectModel mergedModelFromBundles:nil];
-        // NSLog(@"model = %@", model);
+        NSLog(@"model = %@", model);
         
-        NSPersistentStoreCoordinator *psc =
-        [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
         
         // Where does the SQLite file go?
         NSString *path = [self itemArchivePath];
@@ -93,13 +92,13 @@
 - (NSString *)itemArchivePath
 {
     NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+    NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
                                         NSUserDomainMask, YES);
     
     // Get one and only document directory from that list
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
-    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
+    return [documentDirectory stringByAppendingPathComponent:@"news.data"];
 }
 
 - (BOOL)saveChanges
@@ -129,7 +128,7 @@
     return allItems;
 }
 
-- (void) loadNews: (int)from to:(int)to max:(int)max
+- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(NSArray *retrievedData, NSError *error))handler
 {
     NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
@@ -146,7 +145,7 @@
             
             KRNews *news = [NSEntityDescription insertNewObjectForEntityForName:@"KRNews"
                                                       inManagedObjectContext:context];
-            [news setNewsId:100];
+            [news setNewsId: [newsId intValue]];
             [news setTitle:[title base64DecodedString]];
             [news setContent:[content base64DecodedString]];
             [self addItem:news];

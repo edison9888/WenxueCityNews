@@ -33,6 +33,6 @@
 
 - (void)loadAllItems;
 
-- (void) loadNews: (int)from to:(int)to max:(int)max;
+- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(NSArray *newsArray, NSError *error))handler;
 
 @end
