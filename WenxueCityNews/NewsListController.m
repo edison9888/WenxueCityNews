@@ -39,7 +39,10 @@
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
         
     [[KRNewsStore sharedStore] loadNews:0 to:0 max:100 withHandler:^(NSArray *newsArray, NSError *error) {
-        //
+        for(id news in newsArray)
+        {
+            NSLog(@"News(%d) - %@", [news newsId], [news title]);
+        }
     }];
 }
 

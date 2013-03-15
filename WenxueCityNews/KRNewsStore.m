@@ -136,6 +136,7 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableArray *jsonNewsArray = [JSON mutableArrayValueForKey:@"newsList"];
+        NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity:[jsonNewsArray count]];
         NSLog(@"%d news fetched", [jsonNewsArray count]);
         for (id jsonNews in jsonNewsArray)
         {
@@ -149,7 +150,9 @@
             [news setTitle:[title base64DecodedString]];
             [news setContent:[content base64DecodedString]];
             [self addItem:news];
+            [ret addObject: news];
         }
+        handler(ret, nil);
     } failure:nil];
     
     [operation start];
