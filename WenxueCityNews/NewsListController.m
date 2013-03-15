@@ -38,11 +38,14 @@
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
         
-    [[KRNewsStore sharedStore] loadNews:0 to:0 max:100 withHandler:^(NSArray *newsArray, NSError *error) {
-        for(id news in newsArray)
-        {
-            NSLog(@"News(%d) - %@", [news newsId], [news title]);
-        }
+    [[KRNewsStore sharedStore] loadNews:0 to:0 max:20 withHandler:^(KRNews *news, NSError *error) {
+        NSArray *allItems = [[KRNewsStore sharedStore] allItems];
+        NSLog(@"News(%d) - %@", [news newsId], [news title]);
+        int lastRow = [allItems indexOfObject:news];
+        
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+        [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
+                                withRowAnimation:UITableViewRowAnimationTop];
     }];
 }
 
@@ -78,6 +81,12 @@
                   objectAtIndex:[indexPath row]];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:@"UITableViewCell"];
+    }
+
     [[cell textLabel] setText:[news title]];
     
     return cell;

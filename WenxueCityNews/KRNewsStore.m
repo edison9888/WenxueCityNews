@@ -34,7 +34,7 @@
     if(self) {
         // Read in WenxueCityNews.xcdatamodeld
         model = [NSManagedObjectModel mergedModelFromBundles:nil];
-        NSLog(@"model = %@", model);
+        // NSLog(@"model = %@", model);
         
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
         
@@ -81,18 +81,18 @@
         NSError *error;
         NSArray *result = [context executeFetchRequest:request error:&error];
         if (!result) {
-            [NSException raise:@"Fetch failed"
-                        format:@"Reason: %@", [error localizedDescription]];
-        }
-        
-        allItems = [[NSMutableArray alloc] initWithArray:result];
+            NSLog(@"Fetch failed: %@", [error localizedDescription]);
+            allItems = [NSMutableArray arrayWithCapacity:50];
+        } else {
+            allItems = [[NSMutableArray alloc] initWithArray:result];           
+        }        
     }
 }
 
 - (NSString *)itemArchivePath
 {
     NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                         NSUserDomainMask, YES);
     
     // Get one and only document directory from that list
@@ -128,7 +128,7 @@
     return allItems;
 }
 
-- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(NSArray *retrievedData, NSError *error))handler
+- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(KRNews *retrievedNews, NSError *error))handler
 {
     NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
@@ -136,7 +136,6 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableArray *jsonNewsArray = [JSON mutableArrayValueForKey:@"newsList"];
-        NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity:[jsonNewsArray count]];
         NSLog(@"%d news fetched", [jsonNewsArray count]);
         for (id jsonNews in jsonNewsArray)
         {
@@ -150,9 +149,8 @@
             [news setTitle:[title base64DecodedString]];
             [news setContent:[content base64DecodedString]];
             [self addItem:news];
-            [ret addObject: news];
+            handler(news, nil);
         }
-        handler(ret, nil);
     } failure:nil];
     
     [operation start];
