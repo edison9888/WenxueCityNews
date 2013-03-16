@@ -5,18 +5,18 @@
 //  Copyright (c) 2013年 Haihua Xiao. All rights reserved.
 //
 
-#import "NewsListController.h"
+#import "KRNewsListController.h"
 #import "ODRefreshControl.h"
 #import "KRNewsStore.h"
 #import "KRNews.h"
-#import "KRNewsService.h"
+#import "KRNewsViewController.h"
 
-@implementation NewsListController
+@implementation KRNewsListController
 
 - (id)init
 {
     // Call the superclass's designated initializer
-    self = [super initWithStyle:UITableViewStyleGrouped];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         UINavigationItem *n = [self navigationItem];
         
@@ -38,7 +38,7 @@
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
         
-    [[KRNewsStore sharedStore] loadNews:0 to:0 max:20 withHandler:^(KRNews *news, NSError *error) {
+    [[KRNewsStore sharedStore] loadNews:0 to:0 max:40 withHandler:^(KRNews *news, NSError *error) {
         NSArray *allItems = [[KRNewsStore sharedStore] allItems];
         NSLog(@"News(%d) - %@", [news newsId], [news title]);
         int lastRow = [allItems indexOfObject:news];
@@ -47,6 +47,13 @@
         [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
                                 withRowAnimation:UITableViewRowAnimationTop];
     }];
+}
+
+- (void)storeUpdated:(NSNotification *)note
+{
+    NSLog(@"OK! %@", [NSThread currentThread]);
+    [[self tableView] reloadData];
+    NSLog(@"DONE");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -92,5 +99,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)aTableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSArray *items = [[KRNewsStore sharedStore] allItems];
+    KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
+    
+    KRNewsViewController *detailViewController = [[KRNewsViewController alloc] initWithNews: selectedNews];
+    
+    // Push it onto the top of the navigation controller's stack
+    [[self navigationController] pushViewController:detailViewController
+                                           animated:YES];
+}
 
 @end

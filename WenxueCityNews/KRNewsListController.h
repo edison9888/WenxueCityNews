@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsListController : UITableViewController
+@interface KRNewsListController : UITableViewController
 
 @end

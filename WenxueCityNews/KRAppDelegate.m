@@ -7,7 +7,7 @@
 //
 
 #import "KRAppDelegate.h"
-#import "NewsListController.h"
+#import "KRNewsListController.h"
 
 @implementation KRAppDelegate
 
@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     
     // Create a ItemsViewController
-    NewsListController *itemsViewController = [[NewsListController alloc] init];
+    KRNewsListController *itemsViewController = [[KRNewsListController alloc] init];
     
     // Create an instance of a UINavigationController
     // its stack contains only itemsViewController
