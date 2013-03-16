@@ -92,10 +92,11 @@
         cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:@"UITableViewCell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
-    [[cell textLabel] setText:[news title]];
-    
+    [[cell textLabel] setText: [news title]];
+    [[cell imageView] setImage: [UIImage imageNamed:@"bullet_blue"]];
     return cell;
 }
 

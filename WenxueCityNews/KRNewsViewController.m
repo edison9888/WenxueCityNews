@@ -32,12 +32,12 @@
     NSString *html = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
                                    "<style type=\"text/css\"> \n"
-                                   "body {font-family: \"%@\"; font-size: %dpx;}\n"
+                                   "body {font-family: \"%@\"; font-size: %dpt;}\n"
                                    "</style> \n"
                                    "</head> \n"
                                    "<body>%@</body> \n"
-                                   "</html>", @"helvetica", 48, [news content]];
-
+                                   "</html>", @"helvetica", 36, [news content]];
+   
     [webview loadHTMLString: html baseURL: mainBundleURL];
 }
 

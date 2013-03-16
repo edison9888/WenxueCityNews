@@ -32,8 +32,9 @@
 		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
 		B576CC7A16EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */; };
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
+		B58C064F16F427BE00629932 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C064D16F427BD00629932 /* bullet_grey.png */; };
+		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
-		B592239416F4020800894888 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = B592239316F4020800894888 /* style.css */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
 		B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CCE0D716EE17A900DD727C /* KRNewsService.m */; };
 		B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D916EE17BA00DD727C /* launch1.png */; };
@@ -86,9 +87,10 @@
 		B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
 		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
+		B58C064D16F427BD00629932 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
+		B58C065016F4297200629932 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
-		B592239316F4020800894888 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5CCE0D616EE17A900DD727C /* KRNewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsService.h; sourceTree = "<group>"; };
 		B5CCE0D716EE17A900DD727C /* KRNewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsService.m; sourceTree = "<group>"; };
@@ -163,7 +165,8 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
-				B592239316F4020800894888 /* style.css */,
+				B58C065016F4297200629932 /* bullet_blue.png */,
+				B58C064D16F427BD00629932 /* bullet_grey.png */,
 				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CCE0DB16EE17C000DD727C /* launch2.png */,
 				B5CCE0D916EE17BA00DD727C /* launch1.png */,
@@ -293,7 +296,8 @@
 				B5CCE0D516EE170900DD727C /* README.md in Resources */,
 				B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */,
 				B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */,
-				B592239416F4020800894888 /* style.css in Resources */,
+				B58C064F16F427BE00629932 /* bullet_grey.png in Resources */,
+				B58C065116F4297200629932 /* bullet_blue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
