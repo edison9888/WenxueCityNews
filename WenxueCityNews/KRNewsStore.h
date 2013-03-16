@@ -33,6 +33,10 @@
 
 - (void)loadAllItems;
 
-- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(KRNews *news, NSError *error))handler;
+- (int) maxNewsId;
+
+- (int) minNewsId;
+
+- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(KRNews *news, NSError *error))handler;
 
 @end

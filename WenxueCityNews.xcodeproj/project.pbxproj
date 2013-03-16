@@ -30,10 +30,9 @@
 		B576CC7316EB3CA700A4BA11 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7216EB3CA700A4BA11 /* Default.png */; };
 		B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7416EB3CA700A4BA11 /* Default@2x.png */; };
 		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
-		B576CC7A16EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */; };
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
-		B58C064F16F427BE00629932 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C064D16F427BD00629932 /* bullet_grey.png */; };
 		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
+		B58C065316F4478700629932 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065216F4478700629932 /* bullet_grey.png */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
 		B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CCE0D716EE17A900DD727C /* KRNewsService.m */; };
@@ -84,11 +83,10 @@
 		B576CC7216EB3CA700A4BA11 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B576CC7416EB3CA700A4BA11 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
 		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
-		B58C064D16F427BD00629932 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
 		B58C065016F4297200629932 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
+		B58C065216F4478700629932 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -165,9 +163,8 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
+				B58C065216F4478700629932 /* bullet_grey.png */,
 				B58C065016F4297200629932 /* bullet_blue.png */,
-				B58C064D16F427BD00629932 /* bullet_grey.png */,
-				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CCE0DB16EE17C000DD727C /* launch2.png */,
 				B5CCE0D916EE17BA00DD727C /* launch1.png */,
 				B5CCE0D416EE170900DD727C /* README.md */,
@@ -205,6 +202,7 @@
 		B576CC6616EB3CA700A4BA11 /* WenxueCityNews */ = {
 			isa = PBXGroup;
 			children = (
+				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CE38D216F366DC006A7868 /* KRNewsViewController.h */,
 				B5CE38D316F366DC006A7868 /* KRNewsViewController.m */,
 				B5CCE0D616EE17A900DD727C /* KRNewsService.h */,
@@ -213,7 +211,6 @@
 				B5353E1316EB684300A69DA8 /* KRNewsListController.m */,
 				B576CC6F16EB3CA700A4BA11 /* KRAppDelegate.h */,
 				B576CC7016EB3CA700A4BA11 /* KRAppDelegate.m */,
-				B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */,
 				B576CC6716EB3CA700A4BA11 /* Supporting Files */,
 				B58CE98916F0AB2200EC27EA /* KRNews.h */,
 				B58CE98A16F0AB2200EC27EA /* KRNews.m */,
@@ -296,8 +293,8 @@
 				B5CCE0D516EE170900DD727C /* README.md in Resources */,
 				B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */,
 				B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */,
-				B58C064F16F427BE00629932 /* bullet_grey.png in Resources */,
 				B58C065116F4297200629932 /* bullet_blue.png in Resources */,
+				B58C065316F4478700629932 /* bullet_grey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +307,6 @@
 			files = (
 				B576CC6D16EB3CA700A4BA11 /* main.m in Sources */,
 				B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */,
-				B576CC7A16EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld in Sources */,
 				B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */,
 				B5353E1416EB684300A69DA8 /* KRNewsListController.m in Sources */,
 				B5353E2916EB6C3600A69DA8 /* AFHTTPClient.m in Sources */,
@@ -453,16 +449,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B576CC7816EB3CA700A4BA11 /* WenxueCityNews.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */,
-			);
-			currentVersion = B576CC7916EB3CA700A4BA11 /* WenxueCityNews.xcdatamodel */;
-			path = WenxueCityNews.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -470,7 +456,7 @@
 			);
 			currentVersion = B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */;
 			path = WenxueCityNews.xcdatamodeld;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

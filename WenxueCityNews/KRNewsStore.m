@@ -111,6 +111,20 @@
     return successful;
 }
 
+-(int) maxNewsId
+{
+    int count = [allItems count];
+    if(count > 0) return [[allItems objectAtIndex:0] newsId];
+    return 0;
+}
+
+-(int) minNewsId
+{
+    int count = [allItems count];
+    if(count > 0) return [[allItems objectAtIndex:(count-1)] newsId];
+    return 0;
+}
+
 - (void)removeItem:(KRNews *)news
 {
     [context deleteObject:news];
@@ -123,12 +137,18 @@
     [allItems addObject:news];
 }
 
+- (void)insertItem:(KRNews *)news atIndex:(int)atIndex
+{
+    [context insertObject:news];
+    [allItems insertObject:news atIndex:atIndex];
+}
+
 - (NSArray *)allItems
 {
     return allItems;
 }
 
-- (void) loadNews: (int)from to:(int)to max:(int)max withHandler:(void (^)(KRNews *retrievedNews, NSError *error))handler
+- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(KRNews *retrievedNews, NSError *error))handler
 {
     NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
@@ -137,6 +157,7 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableArray *jsonNewsArray = [JSON mutableArrayValueForKey:@"newsList"];
         NSLog(@"%d news fetched", [jsonNewsArray count]);
+        int index = 0;
         for (id jsonNews in jsonNewsArray)
         {
             NSString *newsId = [jsonNews valueForKeyPath:@"id"];
@@ -148,7 +169,12 @@
             [news setNewsId: [newsId intValue]];
             [news setTitle:[title base64DecodedString]];
             [news setContent:[content base64DecodedString]];
-            [self addItem:news];
+            [news setRead:NO];
+            if(appendToTop == NO) {
+                [self addItem:news];
+            } else {
+                [self insertItem:news atIndex:index ++];
+            }
             handler(news, nil);
         }
     } failure:nil];

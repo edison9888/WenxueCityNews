@@ -37,8 +37,13 @@
     
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
-        
-    [[KRNewsStore sharedStore] loadNews:0 to:0 max:40 withHandler:^(KRNews *news, NSError *error) {
+    int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
+    [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES];
+}
+
+- (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
+{
+    [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop withHandler:^(KRNews *news, NSError *error) {
         NSArray *allItems = [[KRNewsStore sharedStore] allItems];
         NSLog(@"News(%d) - %@", [news newsId], [news title]);
         int lastRow = [allItems indexOfObject:news];
@@ -46,7 +51,7 @@
         NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
         [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
                                 withRowAnimation:UITableViewRowAnimationTop];
-    }];
+    }];    
 }
 
 - (void)storeUpdated:(NSNotification *)note
@@ -67,51 +72,79 @@
 
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
-    NSLog(@"Starting refreshing...");
     double delayInSeconds = 3.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [refreshControl endRefreshing];
     });
+    
+    int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
+    NSLog(@"Fetch latest items: %d - ", maxNewsId);
+    [self fetchNews: 0 to:maxNewsId max:100 appendToTop: YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [[[KRNewsStore sharedStore] allItems] count];
+    return [[[KRNewsStore sharedStore] allItems] count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KRNews *news = [[[KRNewsStore sharedStore] allItems]
-                  objectAtIndex:[indexPath row]];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:@"UITableViewCell"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-
-    [[cell textLabel] setText: [news title]];
-    [[cell imageView] setImage: [UIImage imageNamed:@"bullet_blue"]];
-    return cell;
+    int index = [indexPath row];
+    if(index < [[[KRNewsStore sharedStore] allItems] count]) {
+        KRNews *news = [[[KRNewsStore sharedStore] allItems]
+                        objectAtIndex:[indexPath row]];
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleDefault
+                    reuseIdentifier:@"UITableViewCell"];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+        [[cell textLabel] setText: [news title]];
+        if([news read]) {
+            [[cell imageView] setImage: [UIImage imageNamed:@"bullet_grey"]];
+        } else {
+            [[cell imageView] setImage: [UIImage imageNamed:@"bullet_blue"]];
+        }
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewReloadCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleDefault
+                    reuseIdentifier:@"UITableViewReloadCell"];
+        }
+       
+        [[cell textLabel] setText: NSLocalizedString(@"载入更多...", @"loadMore")];
+        cell.textLabel.textAlignment = UITextAlignmentCenter;
+        [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
+        return cell;
+   }
 }
 
 - (void)tableView:(UITableView *)aTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSArray *items = [[KRNewsStore sharedStore] allItems];
-    KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
-    
-    KRNewsViewController *detailViewController = [[KRNewsViewController alloc] initWithNews: selectedNews];
-    
-    // Push it onto the top of the navigation controller's stack
-    [[self navigationController] pushViewController:detailViewController
-                                           animated:YES];
+    int index = [indexPath row];
+    if(index < [[[KRNewsStore sharedStore] allItems] count]) {
+        NSArray *items = [[KRNewsStore sharedStore] allItems];
+        KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
+        [selectedNews setRead: YES];
+        KRNewsViewController *detailViewController = [[KRNewsViewController alloc] initWithNews: selectedNews];
+        
+        // Push it onto the top of the navigation controller's stack
+        [[self navigationController] pushViewController:detailViewController
+                                               animated:YES];
+    } else {
+        int minNewsId = [[KRNewsStore sharedStore] minNewsId];
+        NSLog(@"Fetch previous 20 items: %d - ", minNewsId);
+        [self fetchNews: minNewsId to:0 max:20 appendToTop:NO];
+    }
 }
 
 @end

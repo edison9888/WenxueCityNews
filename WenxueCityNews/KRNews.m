@@ -11,6 +11,7 @@
 @implementation KRNews
 
 @dynamic newsId;
+@dynamic read;
 @dynamic title;
 @dynamic content;
 @dynamic dateCreated;
