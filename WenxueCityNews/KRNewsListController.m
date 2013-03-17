@@ -43,15 +43,26 @@
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
 {
-    [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop withHandler:^(KRNews *news, NSError *error) {
+//    UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//    activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+//    [activityView setBackgroundColor:[UIColor blackColor]];
+//    [activityView startAnimating];
+//    [self.view addSubview:activityView];
+    
+    [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop withHandler:^(NSArray *newsArray, NSError *error) {
         NSArray *allItems = [[KRNewsStore sharedStore] allItems];
-        NSLog(@"News(%d) - %@", [news newsId], [news title]);
-        int lastRow = [allItems indexOfObject:news];
-        
-        NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
-        [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
-                                withRowAnimation:UITableViewRowAnimationTop];
-    }];    
+        NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];
+        for(id news in newsArray)
+        {
+            NSLog(@"News(%d) - %@", [news newsId], [news title]);
+            int lastRow = [allItems indexOfObject:news];
+            
+            NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+            [ips addObject:ip];
+        }
+        [[self tableView] insertRowsAtIndexPaths:ips
+                                withRowAnimation:UITableViewRowAnimationNone];
+    }];
 }
 
 - (void)storeUpdated:(NSNotification *)note

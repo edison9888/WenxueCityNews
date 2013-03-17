@@ -15,8 +15,10 @@
 @interface KRNewsStore : NSObject
 {
     NSMutableArray *allItems;
+    NSMutableDictionary *keyedItems;
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
+    BOOL loading;
 }
 
 + (KRNewsStore *)sharedStore;
@@ -37,6 +39,6 @@
 
 - (int) minNewsId;
 
-- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(KRNews *news, NSError *error))handler;
+- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler;
 
 @end

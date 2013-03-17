@@ -68,6 +68,8 @@
 - (void)loadAllItems
 {
     if (!allItems) {
+        keyedItems = [[NSMutableDictionary alloc] init];
+        
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
         NSEntityDescription *e = [[model entitiesByName] objectForKey:@"KRNews"];
@@ -85,7 +87,11 @@
             allItems = [NSMutableArray arrayWithCapacity:50];
         } else {
             allItems = [[NSMutableArray alloc] initWithArray:result];           
-        }        
+        }
+        for(id item in allItems) {
+            NSString *key = [NSString stringWithFormat:@"%d", [item newsId]];
+            [keyedItems setObject:item forKey: key];
+        }
     }
 }
 
@@ -148,14 +154,18 @@
     return allItems;
 }
 
-- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(KRNews *retrievedNews, NSError *error))handler
+- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
 {
+    if(loading) return;
+    loading = YES;
+    
     NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetUrl];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableArray *jsonNewsArray = [JSON mutableArrayValueForKey:@"newsList"];
+        NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity: [jsonNewsArray count]];
         NSLog(@"%d news fetched", [jsonNewsArray count]);
         int index = 0;
         for (id jsonNews in jsonNewsArray)
@@ -163,20 +173,24 @@
             NSString *newsId = [jsonNews valueForKeyPath:@"id"];
             NSString *title = [jsonNews valueForKeyPath:@"title"];
             NSString *content = [jsonNews valueForKeyPath:@"content"];
-            
-            KRNews *news = [NSEntityDescription insertNewObjectForEntityForName:@"KRNews"
-                                                      inManagedObjectContext:context];
-            [news setNewsId: [newsId intValue]];
-            [news setTitle:[title base64DecodedString]];
-            [news setContent:[content base64DecodedString]];
-            [news setRead:NO];
-            if(appendToTop == NO) {
-                [self addItem:news];
-            } else {
-                [self insertItem:news atIndex:index ++];
+            id oldKey = [keyedItems objectForKey:newsId];
+            if(!oldKey) {
+                KRNews *news = [NSEntityDescription insertNewObjectForEntityForName:@"KRNews"
+                                                             inManagedObjectContext:context];
+                [news setNewsId: [newsId intValue]];
+                [news setTitle:[title base64DecodedString]];
+                [news setContent:[content base64DecodedString]];
+                [news setRead:NO];
+                if(appendToTop == NO) {
+                    [self addItem:news];
+                } else {
+                    [self insertItem:news atIndex:index ++];
+                }
+                [ret addObject:news];
             }
-            handler(news, nil);
         }
+        loading = NO;
+        handler(ret, nil);
     } failure:nil];
     
     [operation start];
