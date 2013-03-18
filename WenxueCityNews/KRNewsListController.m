@@ -34,7 +34,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
+    UIButton *configButton =[UIButton buttonWithType:UIButtonTypeCustom];
+    [configButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [configButton setImage:[UIImage imageNamed:@"applications_system"] forState:UIControlStateNormal];
+    [configButton addTarget:self action:@selector(changeConfiguration:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightButton=[[UIBarButtonItem alloc] initWithCustomView:configButton];
+    self.navigationItem.rightBarButtonItem = rightButton;
+           
+    UIButton *refreshButton =[UIButton buttonWithType:UIButtonTypeCustom];
+    [refreshButton setFrame:CGRectMake(0, 0, 30, 30)];
+    [refreshButton setImage:[UIImage imageNamed:@"applications_system"] forState:UIControlStateNormal];
+    [refreshButton addTarget:self action:@selector(changeConfiguration:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    self.navigationItem.leftBarButtonItem = leftButton;
+
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
@@ -146,7 +160,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         NSArray *items = [[KRNewsStore sharedStore] allItems];
         KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
         [selectedNews setRead: YES];
-        KRNewsViewController *detailViewController = [[KRNewsViewController alloc] initWithNews: selectedNews];
+        
+        KRNewsViewController *detailViewController = [[KRNewsViewController alloc] initWithNibName:@"KRNewsViewController" bundle: nil];
+        [detailViewController setNews:selectedNews];
         
         // Push it onto the top of the navigation controller's stack
         [[self navigationController] pushViewController:detailViewController

@@ -12,6 +12,7 @@
 @implementation KRNewsViewController
 @synthesize news;
 
+/*
 - (void)loadView
 {
     // Create an instance of UIWebView as large as the screen
@@ -19,15 +20,18 @@
     UIWebView *wv = [[UIWebView alloc] initWithFrame:screenFrame];
     // Tell web view to scale web content to fit within bounds of webview
     [wv setScalesPageToFit:YES];
-    
+
     [self setView:wv];
 }
+*/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIWebView *webview = (UIWebView *)[self view];
     NSURL *mainBundleURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+    
+    UIBarButtonItem *shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)];
+    toolBar.items = [NSArray arrayWithObjects:shareButtonItem, nil];
     
     NSString *html = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
@@ -38,18 +42,25 @@
                                    "</head> \n"
                                    "<body>%@</body> \n"
                                    "</html>", @"helvetica", 48, [news content]];
-   
+
+//    UIImage *image = [UIImage imageNamed:@"font.png"];
+//    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithImage: image style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
+    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithTitle:@"A" style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
+    [[self navigationItem] setRightBarButtonItem: changeSize];
+    [webview setScalesPageToFit:YES];
     [webview loadHTMLString: html baseURL: mainBundleURL];
 }
 
-- (id)initWithNews:(KRNews *)anews
+- (IBAction)changeFontSize:(id)sender
 {
-    self = [super init];
-    if(self) {
-        [self setNews:anews];
-    }
-    return self;
+    NSLog(@"Change font size");
 }
+
+- (IBAction)shareNews:(id)sender
+{
+    NSLog(@"Share this news");
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

@@ -158,6 +158,7 @@
 {
     if(loading) return;
     loading = YES;
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
@@ -189,9 +190,13 @@
                 [ret addObject:news];
             }
         }
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         loading = NO;
         handler(ret, nil);
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        loading = NO;        
+    }];
     
     [operation start];
 }

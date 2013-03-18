@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B535141F16F751E000A65648 /* applications_system.png in Resources */ = {isa = PBXBuildFile; fileRef = B535141E16F751E000A65648 /* applications_system.png */; };
+		B535142116F7545B00A65648 /* KRNewsListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B535142016F7545B00A65648 /* KRNewsListController.xib */; };
 		B5353E0A16EB3D3000A69DA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */; };
 		B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */; };
 		B5353E1416EB684300A69DA8 /* KRNewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E1316EB684300A69DA8 /* KRNewsListController.m */; };
@@ -34,6 +36,8 @@
 		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
 		B58C065316F4478700629932 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065216F4478700629932 /* bullet_grey.png */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
+		B58FD20B16F73CA8000EBA80 /* KRNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58FD20A16F73CA8000EBA80 /* KRNewsViewController.xib */; };
+		B58FD20F16F74ABE000EBA80 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = B58FD20E16F74ABE000EBA80 /* font.png */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
 		B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CCE0D716EE17A900DD727C /* KRNewsService.m */; };
 		B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D916EE17BA00DD727C /* launch1.png */; };
@@ -43,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B535141E16F751E000A65648 /* applications_system.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applications_system.png; sourceTree = "<group>"; };
+		B535142016F7545B00A65648 /* KRNewsListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRNewsListController.xib; sourceTree = "<group>"; };
 		B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B5353E0C16EB3E4600A69DA8 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 		B58C065216F4478700629932 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
+		B58FD20A16F73CA8000EBA80 /* KRNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRNewsViewController.xib; sourceTree = "<group>"; };
+		B58FD20E16F74ABE000EBA80 /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font.png; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5CCE0D616EE17A900DD727C /* KRNewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsService.h; sourceTree = "<group>"; };
 		B5CCE0D716EE17A900DD727C /* KRNewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsService.m; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
+				B535141E16F751E000A65648 /* applications_system.png */,
+				B58FD20E16F74ABE000EBA80 /* font.png */,
 				B58C065216F4478700629932 /* bullet_grey.png */,
 				B58C065016F4297200629932 /* bullet_blue.png */,
 				B5CCE0DB16EE17C000DD727C /* launch2.png */,
@@ -216,6 +226,8 @@
 				B58CE98A16F0AB2200EC27EA /* KRNews.m */,
 				B5CF406716F0BAFC002B53C9 /* KRNewsStore.h */,
 				B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */,
+				B58FD20A16F73CA8000EBA80 /* KRNewsViewController.xib */,
+				B535142016F7545B00A65648 /* KRNewsListController.xib */,
 			);
 			path = WenxueCityNews;
 			sourceTree = "<group>";
@@ -295,6 +307,10 @@
 				B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */,
 				B58C065116F4297200629932 /* bullet_blue.png in Resources */,
 				B58C065316F4478700629932 /* bullet_grey.png in Resources */,
+				B58FD20B16F73CA8000EBA80 /* KRNewsViewController.xib in Resources */,
+				B58FD20F16F74ABE000EBA80 /* font.png in Resources */,
+				B535141F16F751E000A65648 /* applications_system.png in Resources */,
+				B535142116F7545B00A65648 /* KRNewsListController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
