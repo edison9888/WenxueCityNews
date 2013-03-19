@@ -12,8 +12,7 @@
 
 @interface KRNewsViewController : UIViewController 
 {
-    IBOutlet UIWebView *webview;
-    IBOutlet UIToolbar *toolBar;
+    UIWebView* webview;
 }
 @property (nonatomic, retain) KRNews *news;
 

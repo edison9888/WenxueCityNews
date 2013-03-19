@@ -34,25 +34,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    UIButton *configButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [configButton setFrame:CGRectMake(0, 0, 30, 30)];
-    [configButton setImage:[UIImage imageNamed:@"applications_system"] forState:UIControlStateNormal];
-    [configButton addTarget:self action:@selector(changeConfiguration:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightButton=[[UIBarButtonItem alloc] initWithCustomView:configButton];
-    self.navigationItem.rightBarButtonItem = rightButton;
-           
-    UIButton *refreshButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [refreshButton setFrame:CGRectMake(0, 0, 30, 30)];
-    [refreshButton setImage:[UIImage imageNamed:@"applications_system"] forState:UIControlStateNormal];
-    [refreshButton addTarget:self action:@selector(changeConfiguration:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithCustomView:refreshButton];
-    self.navigationItem.leftBarButtonItem = leftButton;
 
+    [self.navigationController setToolbarHidden:NO];
+    
+    UIImage *refreshImage = [UIImage imageNamed:@"applications_system"];
+    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStyleBordered target:self action:@selector(refreshNews:)];
+    
+    UIImage *configImage = [UIImage imageNamed:@"applications_system"];
+    UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStyleBordered target:self action:@selector(systemConfig:)];
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space, configButton, nil]];
+    
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
     [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES];
+}
+
+- (IBAction)refreshNews:(id)sender
+{
+    
+}
+
+- (IBAction)systemConfig:(id)sender
+{
+    
 }
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
@@ -161,7 +167,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
         [selectedNews setRead: YES];
         
-        KRNewsViewController *detailViewController = [[KRNewsViewController alloc] initWithNibName:@"KRNewsViewController" bundle: nil];
+        KRNewsViewController *detailViewController = [[KRNewsViewController alloc] init];
         [detailViewController setNews:selectedNews];
         
         // Push it onto the top of the navigation controller's stack

@@ -10,4 +10,7 @@
 
 @interface KRNewsListController : UITableViewController
 
+- (IBAction)refreshNews:(id)sender;
+- (IBAction)systemConfig:(id)sender;
+
 @end

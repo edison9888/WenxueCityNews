@@ -12,27 +12,28 @@
 @implementation KRNewsViewController
 @synthesize news;
 
-/*
+
 - (void)loadView
 {
     // Create an instance of UIWebView as large as the screen
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    UIWebView *wv = [[UIWebView alloc] initWithFrame:screenFrame];
+    webview = [[UIWebView alloc] initWithFrame:screenFrame];
     // Tell web view to scale web content to fit within bounds of webview
-    [wv setScalesPageToFit:YES];
+    [webview setScalesPageToFit:YES];
 
-    [self setView:wv];
+    [self setView:webview];
 }
-*/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     NSURL *mainBundleURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
     
+    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithTitle:@"Aa" style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)];
-    toolBar.items = [NSArray arrayWithObjects:shareButtonItem, nil];
-    
+    [self setToolbarItems:[NSArray arrayWithObjects: changeSize, space, shareButtonItem, nil]];
+
     NSString *html = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
                                    "<style type=\"text/css\"> \n"
@@ -45,9 +46,6 @@
 
 //    UIImage *image = [UIImage imageNamed:@"font.png"];
 //    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithImage: image style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
-    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithTitle:@"A" style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
-    [[self navigationItem] setRightBarButtonItem: changeSize];
-    [webview setScalesPageToFit:YES];
     [webview loadHTMLString: html baseURL: mainBundleURL];
 }
 
