@@ -38,10 +38,10 @@
     [self.navigationController setToolbarHidden:NO];
     
     UIImage *refreshImage = [UIImage imageNamed:@"applications_system"];
-    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStyleBordered target:self action:@selector(refreshNews:)];
+    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(refreshNews:)];
     
     UIImage *configImage = [UIImage imageNamed:@"applications_system"];
-    UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStyleBordered target:self action:@selector(systemConfig:)];
+    UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(systemConfig:)];
     UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space, configButton, nil]];
     
