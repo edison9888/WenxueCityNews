@@ -37,10 +37,12 @@
 
     [self.navigationController setToolbarHidden:NO];
     
-    UIImage *refreshImage = [UIImage imageNamed:@"applications_system"];
+    UIImage *refreshImage = [UIImage imageNamed:@"refresh"];
+//    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshNews:)];
+
     UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(refreshNews:)];
     
-    UIImage *configImage = [UIImage imageNamed:@"applications_system"];
+    UIImage *configImage = [UIImage imageNamed:@"cog"];
     UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(systemConfig:)];
     UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space, configButton, nil]];
@@ -53,7 +55,9 @@
 
 - (IBAction)refreshNews:(id)sender
 {
-    
+    int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
+    NSLog(@"Fetch latest items: %d - ", maxNewsId);
+    [self fetchNews: 0 to:maxNewsId max:100 appendToTop: YES];
 }
 
 - (IBAction)systemConfig:(id)sender
@@ -109,9 +113,7 @@
         [refreshControl endRefreshing];
     });
     
-    int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
-    NSLog(@"Fetch latest items: %d - ", maxNewsId);
-    [self fetchNews: 0 to:maxNewsId max:100 appendToTop: YES];
+    [self refreshNews:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

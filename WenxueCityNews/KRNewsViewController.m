@@ -19,7 +19,7 @@
     CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
     webview = [[UIWebView alloc] initWithFrame:screenFrame];
     // Tell web view to scale web content to fit within bounds of webview
-    [webview setScalesPageToFit:YES];
+    //[webview setScalesPageToFit:YES];
 
     [self setView:webview];
 }
@@ -37,12 +37,12 @@
     NSString *html = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
                                    "<style type=\"text/css\"> \n"
-                                   "body {font-family: \"%@\"; font-size: %dpx;}\n"
+                                   //"body {font-family: \"%@\"; font-size: %dpx !important;}\n"
                                    "html {-webkit-text-size-adjust: none; /* Never autoresize text */}\n"
                                    "</style> \n"
                                    "</head> \n"
                                    "<body>%@</body> \n"
-                                   "</html>", @"helvetica", 48, [news content]];
+                                   "</html>", [news content]];
 
 //    UIImage *image = [UIImage imageNamed:@"font.png"];
 //    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithImage: image style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
