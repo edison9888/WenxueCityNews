@@ -53,6 +53,8 @@
 
     [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space1, infoLabel, space2, configButton, nil]];
     
+    [self updateInfoLabel];
+    
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
