@@ -8,10 +8,10 @@
 
 #import "KRNewsViewController.h"
 #import "KRNews.h"
+#import "KRConfigStore.h"
 
 @implementation KRNewsViewController
 @synthesize news;
-
 
 - (void)loadView
 {
@@ -29,29 +29,31 @@
     [super viewDidLoad];
     NSURL *mainBundleURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
     
-    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithTitle:@"Aa" style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
     UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)];
-    [self setToolbarItems:[NSArray arrayWithObjects: changeSize, space, shareButtonItem, nil]];
+    [self setToolbarItems:[NSArray arrayWithObjects: space, shareButtonItem, nil]];
 
+
+    int fontSize = [[[KRConfigStore sharedStore] fontSize] intValue];
+    switch(fontSize)
+    {
+        case 0: fontSize = 75; break;
+        case 1: fontSize = 100; break;
+        default: fontSize = 125; break;
+    }
     NSString *html = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
                                    "<style type=\"text/css\"> \n"
-                                   //"body {font-family: \"%@\"; font-size: %dpx !important;}\n"
+                                   "body {font-size: %d%% !important;}\n"
                                    "html {-webkit-text-size-adjust: none; /* Never autoresize text */}\n"
                                    "</style> \n"
                                    "</head> \n"
                                    "<body>%@</body> \n"
-                                   "</html>", [news content]];
+                                   "</html>", fontSize, [news content]];
 
 //    UIImage *image = [UIImage imageNamed:@"font.png"];
 //    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithImage: image style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
     [webview loadHTMLString: html baseURL: mainBundleURL];
-}
-
-- (IBAction)changeFontSize:(id)sender
-{
-    NSLog(@"Change font size");
 }
 
 - (IBAction)shareNews:(id)sender

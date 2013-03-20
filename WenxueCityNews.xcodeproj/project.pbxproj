@@ -41,6 +41,7 @@
 		B58BBE3516F89702003C9175 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58BBE3416F89702003C9175 /* bullet_grey.png */; };
 		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
+		B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F3E9316F9E11700917B90 /* KRConfigStore.m */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
 		B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CCE0D716EE17A900DD727C /* KRNewsService.m */; };
 		B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D916EE17BA00DD727C /* launch1.png */; };
@@ -91,7 +92,6 @@
 		B576CC6216EB3CA700A4BA11 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B576CC6416EB3CA700A4BA11 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B576CC6816EB3CA700A4BA11 /* WenxueCityNews-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WenxueCityNews-Info.plist"; sourceTree = "<group>"; };
-		B576CC6A16EB3CA700A4BA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B576CC6C16EB3CA700A4BA11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B576CC6E16EB3CA700A4BA11 /* WenxueCityNews-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WenxueCityNews-Prefix.pch"; sourceTree = "<group>"; };
 		B576CC6F16EB3CA700A4BA11 /* KRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRAppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		B58C065016F4297200629932 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
+		B59F3E9216F9E11700917B90 /* KRConfigStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRConfigStore.h; sourceTree = "<group>"; };
+		B59F3E9316F9E11700917B90 /* KRConfigStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRConfigStore.m; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5CCE0D616EE17A900DD727C /* KRNewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsService.h; sourceTree = "<group>"; };
 		B5CCE0D716EE17A900DD727C /* KRNewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsService.m; sourceTree = "<group>"; };
@@ -240,6 +242,8 @@
 				B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */,
 				B55321CB16F9785C002D9A93 /* KRSettingViewController.h */,
 				B55321CC16F9785C002D9A93 /* KRSettingViewController.m */,
+				B59F3E9216F9E11700917B90 /* KRConfigStore.h */,
+				B59F3E9316F9E11700917B90 /* KRConfigStore.m */,
 			);
 			path = WenxueCityNews;
 			sourceTree = "<group>";
@@ -356,6 +360,7 @@
 				B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */,
 				B5CE38D416F366DC006A7868 /* KRNewsViewController.m in Sources */,
 				B55321CD16F9785C002D9A93 /* KRSettingViewController.m in Sources */,
+				B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +370,6 @@
 		B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B576CC6A16EB3CA700A4BA11 /* en */,
 				B55321CE16F99261002D9A93 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
@@ -399,7 +403,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,7 +428,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

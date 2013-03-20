@@ -22,14 +22,13 @@
         UINavigationItem *n = [self navigationItem];
         
         [n setTitle:NSLocalizedString(@"文学城新闻", @"appTitle")];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(storeUpdated:)
+                                                     name:@"storeUpdated"
+                                                   object:nil];        
     }
     return self;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[self tableView] reloadData];
 }
 
 - (void)viewDidLoad
@@ -111,10 +110,11 @@
     }];
 }
 
-- (void)storeUpdated:(NSNotification *)note
+- (void)storeUpdated:(NSNotification *)notification
 {
     NSLog(@"OK! %@", [NSThread currentThread]);
     [[self tableView] reloadData];
+    [self updateInfoLabel];
     NSLog(@"DONE");
 }
 
@@ -182,15 +182,18 @@
    }
 }
 
-- (void)tableView:(UITableView *)aTableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int index = [indexPath row];
     if(index < [[[KRNewsStore sharedStore] allItems] count]) {
         NSArray *items = [[KRNewsStore sharedStore] allItems];
         KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
         [selectedNews setRead: YES];
-        
+
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
+
         KRNewsViewController *detailViewController = [[KRNewsViewController alloc] init];
         [detailViewController setNews:selectedNews];
         [self updateInfoLabel];

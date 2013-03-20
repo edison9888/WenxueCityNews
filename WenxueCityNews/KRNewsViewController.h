@@ -16,7 +16,6 @@
 }
 @property (nonatomic, retain) KRNews *news;
 
-- (IBAction)changeFontSize:(id)sender;
 - (IBAction)shareNews:(id)sender;
 
 @end

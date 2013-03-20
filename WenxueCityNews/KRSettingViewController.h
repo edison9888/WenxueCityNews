@@ -11,5 +11,6 @@
 @interface KRSettingViewController : UITableViewController
 {
     int numbOfItems;
+    int fontSize;
 }
 @end

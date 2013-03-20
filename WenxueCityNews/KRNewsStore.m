@@ -107,14 +107,24 @@
     return [documentDirectory stringByAppendingPathComponent:@"news.data"];
 }
 
-- (BOOL)saveChanges
+- (void)saveItems:(int)itemCount
 {
+    int totalCount = [allItems count];
+    
+    if(totalCount > itemCount) {
+        NSLog(@"Will remove: %d items", totalCount - itemCount);
+       for(int i=totalCount - 1;i>=itemCount;i--) {
+            KRNews *news = [allItems objectAtIndex:i];
+            [self removeItem: news];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"storeUpdated" object:self];
+    }
+    
     NSError *err = nil;
     BOOL successful = [context save:&err];
     if (!successful) {
         NSLog(@"Error saving: %@", [err localizedDescription]);
     }
-    return successful;
 }
 
 -(int) unread

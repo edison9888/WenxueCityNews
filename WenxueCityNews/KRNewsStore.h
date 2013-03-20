@@ -31,7 +31,7 @@
 
 - (NSString *)itemArchivePath;
 
-- (BOOL)saveChanges;
+- (void)saveItems:(int)itemCount;
 
 - (void)loadAllItems;
 

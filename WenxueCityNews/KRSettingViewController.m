@@ -7,9 +7,7 @@
 //
 
 #import "KRSettingViewController.h"
-
-#define PAGE_SIZE 40
-#define OPETION_COUNT 5
+#import "KRConfigStore.h"
 
 @implementation KRSettingViewController
 
@@ -22,7 +20,8 @@
         
         [n setTitle:NSLocalizedString(@"设置", @"appConfig")];
         
-        numbOfItems = PAGE_SIZE;
+        numbOfItems = [[[KRConfigStore sharedStore] pageSize] intValue];
+        fontSize = [[[KRConfigStore sharedStore] fontSize] intValue];
     }
     return self;
 }
@@ -45,33 +44,68 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return OPETION_COUNT;
+    switch(section)
+    {
+        case 0: return KR_OPTION_COUNT;
+        case 1: return KR_FONT_COUNT;
+        default: return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"UITableViewCell";
+    static NSString *CellIdentifier2 = @"UITableViewCell2";
+    
+    int section = [indexPath section];
     int index = [indexPath row];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:CellIdentifier];
+    if(section == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleDefault
+                    reuseIdentifier:CellIdentifier];
+        }
+        int itemCount = (index+1) * KR_PAGE_SIZE;
+        [[cell textLabel] setText: [NSString stringWithFormat:@"%d 条新闻", itemCount]];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
+        [cell setTag:itemCount];
+        if(itemCount == numbOfItems) {
+            [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
+        }
+        return cell;
+    } else if(section == 1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleDefault
+                    reuseIdentifier:CellIdentifier];
+        }
+        [[cell textLabel] setText: [[KRConfigStore sharedStore] sizeName: index]];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
+        [cell setTag:index];
+       if(index == fontSize) {
+            [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
+        }
+       return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleValue1
+                    reuseIdentifier:CellIdentifier2];
+        }
+        [[cell textLabel] setText: @"版本"];
+        [[cell detailTextLabel] setText: @"1.0.0"];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
+        return cell;        
     }
-    int itemCount = (index+1) * PAGE_SIZE;
-    [[cell textLabel] setText: [NSString stringWithFormat:@"离线存储 %d 条新闻", itemCount]];
-    [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
-    [cell setTag:itemCount];	
-    if(itemCount == numbOfItems) {
-        [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
-    }
-    return cell;
 }
 
 
@@ -79,26 +113,47 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if(section == 0)
+    switch(section)
     {
-        return @"缓存数目";
-    }
-    else
-    {
-        return @"缓存数目";
+        case 0: return @"缓存数目";
+        case 1: return @"字体大小";
+        default: return @"关于";
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    int section = [indexPath section];
+    if(section > 1) return;
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+
+    switch(section)
+    {
+        case 0:
+        {
+            int index = (numbOfItems / KR_PAGE_SIZE) - 1;
+            UITableViewCell* oldCell = [tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:index inSection:section]];
+            [oldCell setAccessoryType:UITableViewCellAccessoryNone];
+            
+            numbOfItems = [cell tag];            
+            [[KRConfigStore sharedStore] setPageSize: [NSNumber numberWithInt:numbOfItems]];
+            break;
+        }
+        case 1:
+        {
+            int index = fontSize;
+            UITableViewCell* oldCell = [tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:index inSection:section]];
+            [oldCell setAccessoryType:UITableViewCellAccessoryNone];
+            
+            fontSize = [cell tag];
+            [[KRConfigStore sharedStore] setFontSize: [NSNumber numberWithInt:fontSize]];
+            break;
+            
+        }
+    }
     
-    int index = (numbOfItems / PAGE_SIZE) - 1;
-    UITableViewCell* oldCell = [tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:index inSection:0]];
-    [oldCell setAccessoryType:UITableViewCellAccessoryNone];
-    
-    numbOfItems = [cell tag];
 }
 
 @end
