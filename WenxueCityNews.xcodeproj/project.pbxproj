@@ -20,6 +20,7 @@
 		B5353E3016EB6C3600A69DA8 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E2616EB6C3600A69DA8 /* AFXMLRequestOperation.m */; };
 		B5353E3116EB6C3600A69DA8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E2816EB6C3600A69DA8 /* UIImageView+AFNetworking.m */; };
 		B5353E3516EB6DFA00A69DA8 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E3416EB6DFA00A69DA8 /* Base64.m */; };
+		B55321CD16F9785C002D9A93 /* KRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55321CC16F9785C002D9A93 /* KRSettingViewController.m */; };
 		B56DB6A016F89ECA00B88AD1 /* reload_24.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB69F16F89ECA00B88AD1 /* reload_24.png */; };
 		B56DB6A216F89EDD00B88AD1 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A116F89EDD00B88AD1 /* gear_24.png */; };
 		B56DB6A416F8A39300B88AD1 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A316F8A39300B88AD1 /* refresh@2x.png */; };
@@ -75,6 +76,9 @@
 		B5353E2816EB6C3600A69DA8 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		B5353E3316EB6DFA00A69DA8 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		B5353E3416EB6DFA00A69DA8 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		B55321CB16F9785C002D9A93 /* KRSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSettingViewController.h; sourceTree = "<group>"; };
+		B55321CC16F9785C002D9A93 /* KRSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSettingViewController.m; sourceTree = "<group>"; };
+		B55321CE16F99261002D9A93 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B56DB69F16F89ECA00B88AD1 /* reload_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_24.png; sourceTree = "<group>"; };
 		B56DB6A116F89EDD00B88AD1 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		B56DB6A316F8A39300B88AD1 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 				B58CE98A16F0AB2200EC27EA /* KRNews.m */,
 				B5CF406716F0BAFC002B53C9 /* KRNewsStore.h */,
 				B5CF406816F0BAFC002B53C9 /* KRNewsStore.m */,
+				B55321CB16F9785C002D9A93 /* KRSettingViewController.h */,
+				B55321CC16F9785C002D9A93 /* KRSettingViewController.m */,
 			);
 			path = WenxueCityNews;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = B576CC5216EB3CA700A4BA11;
 			productRefGroup = B576CC5C16EB3CA700A4BA11 /* Products */;
@@ -348,6 +355,7 @@
 				B5CF406916F0BAFD002B53C9 /* KRNewsStore.m in Sources */,
 				B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */,
 				B5CE38D416F366DC006A7868 /* KRNewsViewController.m in Sources */,
+				B55321CD16F9785C002D9A93 /* KRSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +366,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B576CC6A16EB3CA700A4BA11 /* en */,
+				B55321CE16F99261002D9A93 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

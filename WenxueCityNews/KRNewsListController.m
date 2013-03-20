@@ -10,6 +10,7 @@
 #import "KRNewsStore.h"
 #import "KRNews.h"
 #import "KRNewsViewController.h"
+#import "KRSettingViewController.h"
 
 @implementation KRNewsListController
 
@@ -62,7 +63,15 @@
 
 - (IBAction)systemConfig:(id)sender
 {
+    KRSettingViewController *settingController = [[KRSettingViewController alloc] init];
     
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:settingController];
+    
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
