@@ -77,6 +77,18 @@
 
 #pragma mark - Table view delegate
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+    {
+        return @"缓存数目";
+    }
+    else
+    {
+        return @"缓存数目";
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
