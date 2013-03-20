@@ -35,6 +35,8 @@
 
 - (void)loadAllItems;
 
+- (int) unread;
+
 - (int) maxNewsId;
 
 - (int) minNewsId;

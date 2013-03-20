@@ -40,13 +40,18 @@
     
     UIImage *refreshImage = [UIImage imageNamed:@"refresh"];
 //    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshNews:)];
-
     UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(refreshNews:)];
     
     UIImage *configImage = [UIImage imageNamed:@"cog"];
     UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(systemConfig:)];
-    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space, configButton, nil]];
+    
+    infoLabel = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [infoLabel setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:15], UITextAttributeFont,nil] forState:UIControlStateNormal];
+
+    UIBarButtonItem* space1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem* space2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+    [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space1, infoLabel, space2, configButton, nil]];
     
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
@@ -74,6 +79,12 @@
     [self presentViewController:navController animated:YES completion:nil];
 }
 
+- (void) updateInfoLabel
+{
+    NSArray *allItems = [[KRNewsStore sharedStore] allItems];
+    [infoLabel setTitle: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [allItems count], [[KRNewsStore sharedStore] unread]]];
+}
+
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
 {
 //    UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -93,8 +104,8 @@
             NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
             [ips addObject:ip];
         }
-        [[self tableView] insertRowsAtIndexPaths:ips
-                                withRowAnimation:UITableViewRowAnimationNone];
+        [[self tableView] insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationNone];
+        [self updateInfoLabel];
     }];
 }
 
@@ -180,6 +191,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         
         KRNewsViewController *detailViewController = [[KRNewsViewController alloc] init];
         [detailViewController setNews:selectedNews];
+        [self updateInfoLabel];
         
         // Push it onto the top of the navigation controller's stack
         [[self navigationController] pushViewController:detailViewController

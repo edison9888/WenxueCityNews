@@ -8,6 +8,9 @@
 
 #import "KRSettingViewController.h"
 
+#define PAGE_SIZE 40
+#define OPETION_COUNT 5
+
 @implementation KRSettingViewController
 
 - (id)init
@@ -19,7 +22,7 @@
         
         [n setTitle:NSLocalizedString(@"设置", @"appConfig")];
         
-        numbOfItems = 30;
+        numbOfItems = PAGE_SIZE;
     }
     return self;
 }
@@ -47,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return OPETION_COUNT;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +64,7 @@
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
-    int itemCount = (index+1) * 30;
+    int itemCount = (index+1) * PAGE_SIZE;
     [[cell textLabel] setText: [NSString stringWithFormat:@"离线存储 %d 条新闻", itemCount]];
     [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
     [cell setTag:itemCount];	
@@ -79,7 +82,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     
-    int index = (numbOfItems / 30) - 1;
+    int index = (numbOfItems / PAGE_SIZE) - 1;
     UITableViewCell* oldCell = [tableView cellForRowAtIndexPath: [NSIndexPath indexPathForRow:index inSection:0]];
     [oldCell setAccessoryType:UITableViewCellAccessoryNone];
     

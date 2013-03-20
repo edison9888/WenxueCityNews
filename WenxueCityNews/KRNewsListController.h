@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface KRNewsListController : UITableViewController
-
+{
+    UIBarButtonItem* infoLabel;
+}
 - (IBAction)refreshNews:(id)sender;
 - (IBAction)systemConfig:(id)sender;
 

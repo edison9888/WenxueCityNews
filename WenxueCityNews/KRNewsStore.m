@@ -117,6 +117,16 @@
     return successful;
 }
 
+-(int) unread
+{
+    int r = 0;
+    for (id news in allItems)
+    {
+        if(![news read]) r ++;
+    }
+    return r;
+}
+
 -(int) maxNewsId
 {
     int count = [allItems count];
