@@ -74,6 +74,9 @@
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:settingController];
     
+    navController.navigationBar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    navController.toolbar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    
     [navController setModalPresentationStyle:UIModalPresentationFormSheet];
     [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 
@@ -87,13 +90,7 @@
 }
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
-{
-//    UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//    activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-//    [activityView setBackgroundColor:[UIColor blackColor]];
-//    [activityView startAnimating];
-//    [self.view addSubview:activityView];
-    
+{    
     [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop withHandler:^(NSArray *newsArray, NSError *error) {
         NSArray *allItems = [[KRNewsStore sharedStore] allItems];
         NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];

@@ -439,11 +439,13 @@
 		B576CC9416EB3CA700A4BA11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
 				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "DB8634BF-209A-4BAF-ACEE-A274712A7CC9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -452,11 +454,15 @@
 		B576CC9516EB3CA700A4BA11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
 				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "DB8634BF-209A-4BAF-ACEE-A274712A7CC9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "122584DC-EC4C-420E-82E1-83021C8DAB33";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

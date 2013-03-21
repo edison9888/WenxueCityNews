@@ -74,7 +74,7 @@
         }
         int itemCount = (index+1) * KR_PAGE_SIZE;
         [[cell textLabel] setText: [NSString stringWithFormat:@"%d 条新闻", itemCount]];
-        [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
         [cell setTag:itemCount];
         if(itemCount == numbOfItems) {
             [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
@@ -88,7 +88,7 @@
                     reuseIdentifier:CellIdentifier];
         }
         [[cell textLabel] setText: [[KRConfigStore sharedStore] sizeName: index]];
-        [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
         [cell setTag:index];
        if(index == fontSize) {
             [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
@@ -127,7 +127,6 @@
     if(section > 1) return;
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
 
     switch(section)
     {
@@ -153,7 +152,7 @@
             
         }
     }
-    
+    [cell setAccessoryType:UITableViewCellAccessoryCheckmark];        
 }
 
 @end
