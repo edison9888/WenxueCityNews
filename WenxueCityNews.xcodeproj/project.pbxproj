@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52E012B16FB3B0F00A42462 /* KRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B572FA3916FB35E00065CF1F /* KRDetailViewController.m */; };
 		B5353E0A16EB3D3000A69DA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */; };
 		B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */; };
 		B5353E1416EB684300A69DA8 /* KRNewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E1316EB684300A69DA8 /* KRNewsListController.m */; };
@@ -27,6 +28,10 @@
 		B56DB6A616F8A3B500B88AD1 /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A516F8A3B500B88AD1 /* cog@2x.png */; };
 		B56DB6A816F8A3C600B88AD1 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A716F8A3C600B88AD1 /* cog.png */; };
 		B56DB6AA16F8A3D100B88AD1 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A916F8A3D100B88AD1 /* refresh.png */; };
+		B572FA3116FB2E110065CF1F /* VerticalSwipeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B572FA3616FB33ED0065CF1F /* PullArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B572FA3416FB33ED0065CF1F /* PullArrow.png */; };
+		B572FA3716FB33ED0065CF1F /* PullArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B572FA3516FB33ED0065CF1F /* PullArrow@2x.png */; };
+		B572FA3B16FB39050065CF1F /* DetailView.html in Resources */ = {isa = PBXBuildFile; fileRef = B572FA3A16FB39050065CF1F /* DetailView.html */; };
 		B576CC5F16EB3CA700A4BA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC5E16EB3CA700A4BA11 /* UIKit.framework */; };
 		B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6016EB3CA700A4BA11 /* Foundation.framework */; };
 		B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6216EB3CA700A4BA11 /* CoreGraphics.framework */; };
@@ -86,6 +91,13 @@
 		B56DB6A516F8A3B500B88AD1 /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
 		B56DB6A716F8A3C600B88AD1 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
 		B56DB6A916F8A3D100B88AD1 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		B572FA2F16FB2E110065CF1F /* VerticalSwipeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalSwipeScrollView.h; sourceTree = "<group>"; };
+		B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalSwipeScrollView.m; sourceTree = "<group>"; };
+		B572FA3416FB33ED0065CF1F /* PullArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PullArrow.png; sourceTree = "<group>"; };
+		B572FA3516FB33ED0065CF1F /* PullArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PullArrow@2x.png"; sourceTree = "<group>"; };
+		B572FA3816FB35DF0065CF1F /* KRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRDetailViewController.h; sourceTree = "<group>"; };
+		B572FA3916FB35E00065CF1F /* KRDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRDetailViewController.m; sourceTree = "<group>"; };
+		B572FA3A16FB39050065CF1F /* DetailView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DetailView.html; sourceTree = "<group>"; };
 		B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WenxueCityNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B576CC5E16EB3CA700A4BA11 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B576CC6016EB3CA700A4BA11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -178,9 +190,21 @@
 			path = Base64;
 			sourceTree = "<group>";
 		};
-		B576CC5216EB3CA700A4BA11 = {
+		B572FA3216FB2E180065CF1F /* VirticalSwipeScroll */ = {
 			isa = PBXGroup;
 			children = (
+				B572FA2F16FB2E110065CF1F /* VerticalSwipeScrollView.h */,
+				B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */,
+			);
+			name = VirticalSwipeScroll;
+			sourceTree = "<group>";
+		};
+		B572FA3316FB2E430065CF1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B572FA3A16FB39050065CF1F /* DetailView.html */,
+				B572FA3416FB33ED0065CF1F /* PullArrow.png */,
+				B572FA3516FB33ED0065CF1F /* PullArrow@2x.png */,
 				B56DB6A916F8A3D100B88AD1 /* refresh.png */,
 				B56DB6A716F8A3C600B88AD1 /* cog.png */,
 				B56DB6A316F8A39300B88AD1 /* refresh@2x.png */,
@@ -191,6 +215,14 @@
 				B5CCE0DB16EE17C000DD727C /* launch2.png */,
 				B56DB6A516F8A3B500B88AD1 /* cog@2x.png */,
 				B5CCE0D916EE17BA00DD727C /* launch1.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B576CC5216EB3CA700A4BA11 = {
+			isa = PBXGroup;
+			children = (
+				B572FA3316FB2E430065CF1F /* Resources */,
 				B5CCE0D416EE170900DD727C /* README.md */,
 				B5353E3216EB6DFA00A69DA8 /* Base64 */,
 				B5353E1516EB6C3600A69DA8 /* AFNetworking */,
@@ -198,6 +230,7 @@
 				B576CC6616EB3CA700A4BA11 /* WenxueCityNews */,
 				B576CC5D16EB3CA700A4BA11 /* Frameworks */,
 				B576CC5C16EB3CA700A4BA11 /* Products */,
+				B572FA3216FB2E180065CF1F /* VirticalSwipeScroll */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -226,6 +259,8 @@
 		B576CC6616EB3CA700A4BA11 /* WenxueCityNews */ = {
 			isa = PBXGroup;
 			children = (
+				B572FA3816FB35DF0065CF1F /* KRDetailViewController.h */,
+				B572FA3916FB35E00065CF1F /* KRDetailViewController.m */,
 				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CE38D216F366DC006A7868 /* KRNewsViewController.h */,
 				B5CE38D316F366DC006A7868 /* KRNewsViewController.m */,
@@ -330,6 +365,9 @@
 				B56DB6A616F8A3B500B88AD1 /* cog@2x.png in Resources */,
 				B56DB6A816F8A3C600B88AD1 /* cog.png in Resources */,
 				B56DB6AA16F8A3D100B88AD1 /* refresh.png in Resources */,
+				B572FA3616FB33ED0065CF1F /* PullArrow.png in Resources */,
+				B572FA3716FB33ED0065CF1F /* PullArrow@2x.png in Resources */,
+				B572FA3B16FB39050065CF1F /* DetailView.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52E012B16FB3B0F00A42462 /* KRDetailViewController.m in Sources */,
 				B576CC6D16EB3CA700A4BA11 /* main.m in Sources */,
 				B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */,
 				B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */,
@@ -361,6 +400,7 @@
 				B5CE38D416F366DC006A7868 /* KRNewsViewController.m in Sources */,
 				B55321CD16F9785C002D9A93 /* KRSettingViewController.m in Sources */,
 				B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */,
+				B572FA3116FB2E110065CF1F /* VerticalSwipeScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

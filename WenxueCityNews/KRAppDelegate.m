@@ -29,6 +29,7 @@
     // its stack contains only itemsViewController
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:itemsViewController];
+    navController.delegate = self;
     
     navController.navigationBar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
     navController.toolbar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
@@ -40,6 +41,12 @@
     [self.window makeKeyAndVisible];
         
     return YES;
+}
+
+- (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if ([viewController respondsToSelector:@selector(willAppearIn:)])
+        [viewController performSelector:@selector(willAppearIn:) withObject:navController];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

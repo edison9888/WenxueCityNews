@@ -27,7 +27,6 @@
     return [self sharedStore];
 }
 
-
 - (id)init
 {
     self = [super init];
@@ -137,6 +136,11 @@
     return r;
 }
 
+-(int) total
+{
+    return [allItems count];
+}
+
 -(int) maxNewsId
 {
     int count = [allItems count];
@@ -173,6 +177,22 @@
 {
     return allItems;
 }
+
+- (KRNews *)nextItem:(NSInteger)newsId
+{
+    return nil;
+}
+
+- (KRNews *)prevItem:(NSInteger)newsId
+{
+    return nil;
+}
+
+- (KRNews *)itemAt:(NSInteger)index
+{
+    return [allItems objectAtIndex:index];
+}
+
 
 - (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
 {

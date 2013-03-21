@@ -11,6 +11,7 @@
 #import "KRNews.h"
 #import "KRNewsViewController.h"
 #import "KRSettingViewController.h"
+#import "KRDetailViewController.h"
 
 @implementation KRNewsListController
 
@@ -85,8 +86,8 @@
 
 - (void) updateInfoLabel
 {
-    NSArray *allItems = [[KRNewsStore sharedStore] allItems];
-    [infoLabel setTitle: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [allItems count], [[KRNewsStore sharedStore] unread]]];
+    KRNewsStore *sharedStore = [KRNewsStore sharedStore];
+    [infoLabel setTitle: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [sharedStore total], [sharedStore unread]]];
 }
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
@@ -183,21 +184,19 @@
 {
     int index = [indexPath row];
     if(index < [[[KRNewsStore sharedStore] allItems] count]) {
-        NSArray *items = [[KRNewsStore sharedStore] allItems];
-        KRNews *selectedNews = [items objectAtIndex:[indexPath row]];
+        KRNews *selectedNews = [[KRNewsStore sharedStore] itemAt:index];
         [selectedNews setRead: YES];
 
         [self.tableView beginUpdates];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         [self.tableView endUpdates];
 
-        KRNewsViewController *detailViewController = [[KRNewsViewController alloc] init];
-        [detailViewController setNews:selectedNews];
+        KRDetailViewController *detailViewController = [[KRDetailViewController alloc] init];
+        [detailViewController setStartIndex: index];
         [self updateInfoLabel];
         
         // Push it onto the top of the navigation controller's stack
-        [[self navigationController] pushViewController:detailViewController
-                                               animated:YES];
+        [[self navigationController] pushViewController:detailViewController animated:YES];
     } else {
         int minNewsId = [[KRNewsStore sharedStore] minNewsId];
         NSLog(@"Fetch previous 20 items: %d - ", minNewsId);

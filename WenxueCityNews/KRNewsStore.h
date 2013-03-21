@@ -37,9 +37,17 @@
 
 - (int) unread;
 
+- (int) total;
+
 - (int) maxNewsId;
 
 - (int) minNewsId;
+
+- (KRNews *)nextItem:(NSInteger)newsId;
+
+- (KRNews *)prevItem:(NSInteger)newsId;
+
+- (KRNews *)itemAt:(NSInteger)index;
 
 - (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler;
 

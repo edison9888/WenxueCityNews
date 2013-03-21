@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KRAppDelegate : UIResponder <UIApplicationDelegate>
+@interface KRAppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
