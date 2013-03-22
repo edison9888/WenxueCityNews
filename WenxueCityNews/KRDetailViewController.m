@@ -47,7 +47,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 -(void)willAppearIn:(UINavigationController *)navigationController
 {
-    self.verticalSwipeScrollView = [[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame headerView:headerView footerView:footerView startingAt:startIndex delegate:self];
+    self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
     [self.view addSubview:verticalSwipeScrollView];
 }
 
@@ -90,10 +90,10 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 {
   UIWebView* webView = nil;
   
-  if (page < scrollView.currentPageIndex)
-    webView = previousPage;
-  else if (page > scrollView.currentPageIndex)
-    webView = nextPage;
+    if (page < scrollView.currentPageIndex)
+        webView = [[previousPage retain] autorelease];
+    else if (page > scrollView.currentPageIndex)
+        webView = [[nextPage retain] autorelease];
   
   if (!webView)
     webView = [self createWebViewForIndex:page];
@@ -103,7 +103,17 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   self.previousPage = page > 0 ? [self createWebViewForIndex:page-1] : nil;
   self.nextPage = (page == ([self pageCount]-1)) ? nil : [self createWebViewForIndex:page+1];
   
-  self.navigationItem.title = [[sharedStore itemAt:page] title];
+    CGRect frame = CGRectMake(0, 0, 400, 44);
+    UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:8.0];
+    label.textAlignment = UITextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = [[sharedStore itemAt:page] title];
+    self.navigationItem.titleView = label;
+
+    //self.navigationItem.title = [[sharedStore itemAt:page] title];
+
   if (page > 0)
     headerLabel.text = [[sharedStore itemAt:page-1] title];
   if (page != [self pageCount]-1)
@@ -119,7 +129,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 -(UIWebView*) createWebViewForIndex:(NSUInteger)index
 {
-  UIWebView* webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    UIWebView* webView = [[[UIWebView alloc] initWithFrame:self.view.frame] autorelease];
   webView.opaque = NO;
   [webView setBackgroundColor:[UIColor clearColor]];
   [self hideGradientBackground:webView];
@@ -154,6 +164,34 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
     [self hideGradientBackground:subview];
   }
+}
+
+- (void)viewDidUnload
+{
+    self.headerView = nil;
+    self.headerImageView = nil;
+    self.headerLabel = nil;
+    
+    self.footerView = nil;
+    self.footerImageView = nil;
+    self.footerLabel = nil;
+}
+
+- (void)dealloc
+{
+    [headerView release];
+    [headerImageView release];
+    [headerLabel release];
+    
+    [footerView release];
+    [footerImageView release];
+    [footerLabel release];
+    
+    [verticalSwipeScrollView release];
+    [previousPage release];
+    [nextPage release];
+    
+    [super dealloc];
 }
 
 @end

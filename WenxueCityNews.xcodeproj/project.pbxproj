@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B52E012B16FB3B0F00A42462 /* KRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B572FA3916FB35E00065CF1F /* KRDetailViewController.m */; };
+		B52E012B16FB3B0F00A42462 /* KRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B572FA3916FB35E00065CF1F /* KRDetailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B5353E0A16EB3D3000A69DA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */; };
 		B5353E0E16EB3E4600A69DA8 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E0D16EB3E4600A69DA8 /* ODRefreshControl.m */; };
 		B5353E1416EB684300A69DA8 /* KRNewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5353E1316EB684300A69DA8 /* KRNewsListController.m */; };
@@ -45,6 +45,7 @@
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
 		B58BBE3516F89702003C9175 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58BBE3416F89702003C9175 /* bullet_grey.png */; };
 		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
+		B58C733616FC8C5C003598F7 /* KRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58C733516FC8C5C003598F7 /* KRDetailViewController.xib */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
 		B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F3E9316F9E11700917B90 /* KRConfigStore.m */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
@@ -95,7 +96,6 @@
 		B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalSwipeScrollView.m; sourceTree = "<group>"; };
 		B572FA3416FB33ED0065CF1F /* PullArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PullArrow.png; sourceTree = "<group>"; };
 		B572FA3516FB33ED0065CF1F /* PullArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PullArrow@2x.png"; sourceTree = "<group>"; };
-		B572FA3816FB35DF0065CF1F /* KRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRDetailViewController.h; sourceTree = "<group>"; };
 		B572FA3916FB35E00065CF1F /* KRDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRDetailViewController.m; sourceTree = "<group>"; };
 		B572FA3A16FB39050065CF1F /* DetailView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DetailView.html; sourceTree = "<group>"; };
 		B576CC5B16EB3CA700A4BA11 /* WenxueCityNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WenxueCityNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +115,8 @@
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
 		B58BBE3416F89702003C9175 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
 		B58C065016F4297200629932 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
+		B58C733416FC8C4F003598F7 /* KRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRDetailViewController.h; sourceTree = "<group>"; };
+		B58C733516FC8C5C003598F7 /* KRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRDetailViewController.xib; sourceTree = "<group>"; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
 		B59F3E9216F9E11700917B90 /* KRConfigStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRConfigStore.h; sourceTree = "<group>"; };
@@ -259,7 +261,8 @@
 		B576CC6616EB3CA700A4BA11 /* WenxueCityNews */ = {
 			isa = PBXGroup;
 			children = (
-				B572FA3816FB35DF0065CF1F /* KRDetailViewController.h */,
+				B58C733516FC8C5C003598F7 /* KRDetailViewController.xib */,
+				B58C733416FC8C4F003598F7 /* KRDetailViewController.h */,
 				B572FA3916FB35E00065CF1F /* KRDetailViewController.m */,
 				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CE38D216F366DC006A7868 /* KRNewsViewController.h */,
@@ -368,6 +371,7 @@
 				B572FA3616FB33ED0065CF1F /* PullArrow.png in Resources */,
 				B572FA3716FB33ED0065CF1F /* PullArrow@2x.png in Resources */,
 				B572FA3B16FB39050065CF1F /* DetailView.html in Resources */,
+				B58C733616FC8C5C003598F7 /* KRDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
