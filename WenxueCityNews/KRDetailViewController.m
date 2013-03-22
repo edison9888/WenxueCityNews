@@ -54,6 +54,14 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 - (void)viewDidLoad
 {
     headerImageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(180));
+    UIBarButtonItem* space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
+    UIBarButtonItem *shareButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)] autorelease];
+    [self setToolbarItems:[NSArray arrayWithObjects: space, shareButtonItem, nil]];
+}
+
+- (IBAction)shareNews:(id)sender
+{
+    NSLog(@"Share this news");
 }
 
 - (void) rotateImageView:(UIImageView*)imageView angle:(CGFloat)angle

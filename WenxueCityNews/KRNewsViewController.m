@@ -51,8 +51,6 @@
                                    "<body>%@</body> \n"
                                    "</html>", fontSize, [news content]];
 
-//    UIImage *image = [UIImage imageNamed:@"font.png"];
-//    UIBarButtonItem *changeSize = [[UIBarButtonItem alloc] initWithImage: image style:UIBarButtonItemStylePlain target:self action: @selector(changeFontSize:)];
     [webview loadHTMLString: html baseURL: mainBundleURL];
 }
 

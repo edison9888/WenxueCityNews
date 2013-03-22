@@ -49,7 +49,6 @@
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
 		B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F3E9316F9E11700917B90 /* KRConfigStore.m */; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
-		B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CCE0D716EE17A900DD727C /* KRNewsService.m */; };
 		B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D916EE17BA00DD727C /* launch1.png */; };
 		B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0DB16EE17C000DD727C /* launch2.png */; };
 		B5CE38D416F366DC006A7868 /* KRNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CE38D316F366DC006A7868 /* KRNewsViewController.m */; };
@@ -122,8 +121,6 @@
 		B59F3E9216F9E11700917B90 /* KRConfigStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRConfigStore.h; sourceTree = "<group>"; };
 		B59F3E9316F9E11700917B90 /* KRConfigStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRConfigStore.m; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		B5CCE0D616EE17A900DD727C /* KRNewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsService.h; sourceTree = "<group>"; };
-		B5CCE0D716EE17A900DD727C /* KRNewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNewsService.m; sourceTree = "<group>"; };
 		B5CCE0D916EE17BA00DD727C /* launch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch1.png; sourceTree = "<group>"; };
 		B5CCE0DB16EE17C000DD727C /* launch2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch2.png; sourceTree = "<group>"; };
 		B5CE38D216F366DC006A7868 /* KRNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNewsViewController.h; sourceTree = "<group>"; };
@@ -267,8 +264,6 @@
 				B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */,
 				B5CE38D216F366DC006A7868 /* KRNewsViewController.h */,
 				B5CE38D316F366DC006A7868 /* KRNewsViewController.m */,
-				B5CCE0D616EE17A900DD727C /* KRNewsService.h */,
-				B5CCE0D716EE17A900DD727C /* KRNewsService.m */,
 				B5353E1216EB684300A69DA8 /* KRNewsListController.h */,
 				B5353E1316EB684300A69DA8 /* KRNewsListController.m */,
 				B576CC6F16EB3CA700A4BA11 /* KRAppDelegate.h */,
@@ -397,7 +392,6 @@
 				B5353E3016EB6C3600A69DA8 /* AFXMLRequestOperation.m in Sources */,
 				B5353E3116EB6C3600A69DA8 /* UIImageView+AFNetworking.m in Sources */,
 				B5353E3516EB6DFA00A69DA8 /* Base64.m in Sources */,
-				B5CCE0D816EE17A900DD727C /* KRNewsService.m in Sources */,
 				B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */,
 				B5CF406916F0BAFD002B53C9 /* KRNewsStore.m in Sources */,
 				B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */,
