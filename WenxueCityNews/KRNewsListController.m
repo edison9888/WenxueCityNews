@@ -61,6 +61,10 @@
     [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+}
+
 - (IBAction)refreshNews:(id)sender
 {
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
