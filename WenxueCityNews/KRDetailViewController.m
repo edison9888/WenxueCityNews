@@ -138,7 +138,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     if (page != [self pageCount]-1)
         footerLabel.text = [[sharedStore itemAt:page+1] title];
     
-    [infoLabel setText: [NSString stringWithFormat:@"%d/%d", page, [self pageCount]]];
+    [infoLabel setText: [NSString stringWithFormat:@"%d/%d", (page + 1), [self pageCount]]];
 
     return webView;
 }

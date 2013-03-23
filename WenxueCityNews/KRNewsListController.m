@@ -201,7 +201,6 @@
                     reuseIdentifier:@"UITableViewReloadCell"];
         }
        
-        [[cell imageView] setImage: [UIImage imageNamed:@"Spinner.gif"]];
         [[cell textLabel] setText: NSLocalizedString(@"显示下20条...", @"loadMore")];
         cell.textLabel.textAlignment = UITextAlignmentCenter;
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15.0];
