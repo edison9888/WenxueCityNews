@@ -44,6 +44,15 @@
 		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
 		B58A901416FD3DE200E4E020 /* Spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = B58A901316FD3DE200E4E020 /* Spinner.gif */; };
+		B58A902D16FD537000E4E020 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A902C16FD537000E4E020 /* SystemConfiguration.framework */; };
+		B58A902F16FD537E00E4E020 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A902E16FD537E00E4E020 /* MessageUI.framework */; };
+		B58A903116FD539900E4E020 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903016FD539900E4E020 /* libicucore.dylib */; };
+		B58A903D16FD545300E4E020 /* AGCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903316FD545300E4E020 /* AGCommon.framework */; };
+		B58A903E16FD545300E4E020 /* ShareSDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */; };
+		B58A903F16FD545300E4E020 /* QQApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903616FD545300E4E020 /* QQApi.framework */; };
+		B58A904016FD545300E4E020 /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B58A903716FD545300E4E020 /* Resource.bundle */; };
+		B58A904116FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903916FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a */; };
+		B58A904216FD545300E4E020 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903C16FD545300E4E020 /* ShareSDK.framework */; };
 		B58BBE3516F89702003C9175 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58BBE3416F89702003C9175 /* bullet_grey.png */; };
 		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
 		B58C733616FC8C5C003598F7 /* KRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58C733516FC8C5C003598F7 /* KRDetailViewController.xib */; };
@@ -115,6 +124,17 @@
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
 		B58A901316FD3DE200E4E020 /* Spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Spinner.gif; sourceTree = "<group>"; };
 		B58A901916FD3F1D00E4E020 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		B58A902C16FD537000E4E020 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B58A902E16FD537E00E4E020 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B58A903016FD539900E4E020 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B58A903316FD545300E4E020 /* AGCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AGCommon.framework; sourceTree = "<group>"; };
+		B58A903516FD545300E4E020 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareSDKLocalizable.strings; sourceTree = "<group>"; };
+		B58A903616FD545300E4E020 /* QQApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQApi.framework; sourceTree = "<group>"; };
+		B58A903716FD545300E4E020 /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
+		B58A903916FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
+		B58A903A16FD545300E4E020 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		B58A903B16FD545300E4E020 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		B58A903C16FD545300E4E020 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
 		B58BBE3416F89702003C9175 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
 		B58C065016F4297200629932 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
 		B58C733416FC8C4F003598F7 /* KRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRDetailViewController.h; sourceTree = "<group>"; };
@@ -137,11 +157,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58A903116FD539900E4E020 /* libicucore.dylib in Frameworks */,
+				B58A902F16FD537E00E4E020 /* MessageUI.framework in Frameworks */,
+				B58A902D16FD537000E4E020 /* SystemConfiguration.framework in Frameworks */,
 				B5353E0A16EB3D3000A69DA8 /* QuartzCore.framework in Frameworks */,
 				B576CC5F16EB3CA700A4BA11 /* UIKit.framework in Frameworks */,
 				B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */,
 				B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */,
 				B576CC6516EB3CA700A4BA11 /* CoreData.framework in Frameworks */,
+				B58A903D16FD545300E4E020 /* AGCommon.framework in Frameworks */,
+				B58A903F16FD545300E4E020 /* QQApi.framework in Frameworks */,
+				B58A904116FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
+				B58A904216FD545300E4E020 /* ShareSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +253,7 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
+				B58A903216FD545300E4E020 /* ShareSDK_v1.2.5 */,
 				B572FA3316FB2E430065CF1F /* Resources */,
 				B5353E3216EB6DFA00A69DA8 /* Base64 */,
 				B5353E1516EB6C3600A69DA8 /* AFNetworking */,
@@ -249,6 +277,9 @@
 		B576CC5D16EB3CA700A4BA11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B58A903016FD539900E4E020 /* libicucore.dylib */,
+				B58A902E16FD537E00E4E020 /* MessageUI.framework */,
+				B58A902C16FD537000E4E020 /* SystemConfiguration.framework */,
 				B58A901916FD3F1D00E4E020 /* ImageIO.framework */,
 				B5353E0916EB3D3000A69DA8 /* QuartzCore.framework */,
 				B576CC5E16EB3CA700A4BA11 /* UIKit.framework */,
@@ -298,6 +329,29 @@
 				B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B58A903216FD545300E4E020 /* ShareSDK_v1.2.5 */ = {
+			isa = PBXGroup;
+			children = (
+				B58A903316FD545300E4E020 /* AGCommon.framework */,
+				B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */,
+				B58A903616FD545300E4E020 /* QQApi.framework */,
+				B58A903716FD545300E4E020 /* Resource.bundle */,
+				B58A903816FD545300E4E020 /* SDKExport */,
+				B58A903C16FD545300E4E020 /* ShareSDK.framework */,
+			);
+			path = ShareSDK_v1.2.5;
+			sourceTree = "<group>";
+		};
+		B58A903816FD545300E4E020 /* SDKExport */ = {
+			isa = PBXGroup;
+			children = (
+				B58A903916FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a */,
+				B58A903A16FD545300E4E020 /* WXApi.h */,
+				B58A903B16FD545300E4E020 /* WXApiObject.h */,
+			);
+			path = SDKExport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +427,8 @@
 				B572FA3B16FB39050065CF1F /* DetailView.html in Resources */,
 				B58C733616FC8C5C003598F7 /* KRDetailViewController.xib in Resources */,
 				B58A901416FD3DE200E4E020 /* Spinner.gif in Resources */,
+				B58A903E16FD545300E4E020 /* ShareSDKLocalizable.strings in Resources */,
+				B58A904016FD545300E4E020 /* Resource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +473,14 @@
 				B55321CE16F99261002D9A93 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B58A903516FD545300E4E020 /* en */,
+			);
+			name = ShareSDKLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -484,10 +548,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ShareSDK_v1.2.5\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
 				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ShareSDK_v1.2.5/SDKExport\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "DB8634BF-209A-4BAF-ACEE-A274712A7CC9";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,10 +572,18 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ShareSDK_v1.2.5\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
 				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ShareSDK_v1.2.5/SDKExport\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "DB8634BF-209A-4BAF-ACEE-A274712A7CC9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "122584DC-EC4C-420E-82E1-83021C8DAB33";

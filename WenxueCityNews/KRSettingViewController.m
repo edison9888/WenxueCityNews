@@ -30,9 +30,11 @@
 {
     [super viewDidLoad];
 
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissAnimated:)];
     self.navigationItem.leftBarButtonItem = doneButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
 }
 
 - (IBAction)dismissAnimated:(id)sender

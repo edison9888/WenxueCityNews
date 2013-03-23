@@ -10,6 +10,7 @@
 #import "KRNewsListController.h"
 #import "KRNewsStore.h"
 #import "KRConfigStore.h"
+#import <ShareSDK/ShareSDK.h>
 
 @implementation KRAppDelegate
 
@@ -21,6 +22,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [ShareSDK registerApp:@"13e88b9c255"];
     
     // Create a ItemsViewController
     listController = [[KRNewsListController alloc] init];
@@ -40,6 +43,16 @@
     [self.window makeKeyAndVisible];
         
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url wxDelegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url wxDelegate:self];
 }
 
 - (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
