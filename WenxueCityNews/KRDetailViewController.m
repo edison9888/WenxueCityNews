@@ -56,7 +56,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     headerImageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(180));
     
     infoLabel = [[UILabel alloc] init];
-    [infoLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    [infoLabel setFont:[UIFont boldSystemFontOfSize:12]];
     infoLabel.frame =  CGRectMake(0.0, 0.0, 128, 32);
     infoLabel.backgroundColor = [UIColor clearColor];
     infoLabel.textColor = [UIColor whiteColor];

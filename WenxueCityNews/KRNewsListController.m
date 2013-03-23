@@ -48,7 +48,7 @@
     
     
     infoLabel = [[UILabel alloc] init];
-    [infoLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    [infoLabel setFont:[UIFont boldSystemFontOfSize:12]];
     infoLabel.frame =  CGRectMake(0.0, 0.0, 196, 32);
     infoLabel.backgroundColor = [UIColor clearColor];
     infoLabel.textAlignment = UITextAlignmentCenter;
@@ -121,7 +121,7 @@
         NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];
         for(id news in newsArray)
         {
-            NSLog(@"News(%d) - %@", [news newsId], [news title]);
+            //NSLog(@"News(%d) - %@", [news newsId], [news title]);
             int lastRow = [allItems indexOfObject:news];
             
             NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];

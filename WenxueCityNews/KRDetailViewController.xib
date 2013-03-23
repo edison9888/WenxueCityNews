@@ -68,7 +68,7 @@
 					</object>
 					<object class="IBUILabel" id="189164164">
 						<reference key="NSNextResponder" ref="125009387"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">258</int>
 						<string key="NSFrame">{{59, 13}, {241, 21}}</string>
 						<reference key="NSSuperview" ref="125009387"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -126,7 +126,7 @@
 					</object>
 					<object class="IBUILabel" id="945375082">
 						<reference key="NSNextResponder" ref="695890784"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{59, 13}, {241, 21}}</string>
 						<reference key="NSSuperview" ref="695890784"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -333,10 +333,6 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1552" key="NS.object.0"/>
-		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>
