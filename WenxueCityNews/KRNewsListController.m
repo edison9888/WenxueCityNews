@@ -174,6 +174,10 @@
                     initWithStyle:UITableViewCellStyleDefault
                     reuseIdentifier:@"UITableViewCell"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+            UIView *selectionColor = [[UIView alloc] init];
+            selectionColor.backgroundColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+            cell.selectedBackgroundView = selectionColor;           
         }
         
         [[cell textLabel] setText: [news title]];
