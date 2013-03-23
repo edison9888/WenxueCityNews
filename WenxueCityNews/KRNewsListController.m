@@ -46,13 +46,19 @@
     UIImage *configImage = [UIImage imageNamed:@"cog"];
     UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(systemConfig:)];
     
-    infoLabel = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [infoLabel setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:15], UITextAttributeFont,nil] forState:UIControlStateNormal];
-
+    
+    infoLabel = [[UILabel alloc] init];
+    [infoLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    infoLabel.frame =  CGRectMake(0.0, 0.0, 196, 32);
+    infoLabel.backgroundColor = [UIColor clearColor];
+    infoLabel.textAlignment = UITextAlignmentCenter;
+    infoLabel.textColor = [UIColor whiteColor];
+    UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithCustomView:infoLabel];
+    
     UIBarButtonItem* space1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem* space2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
-    [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space1, infoLabel, space2, configButton, nil]];
+    [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space1, infoItem, space2, configButton, nil]];
     
     [self updateInfoLabel];
     
@@ -105,7 +111,7 @@
 - (void) updateInfoLabel
 {
     KRNewsStore *sharedStore = [KRNewsStore sharedStore];
-    [infoLabel setTitle: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [sharedStore total], [sharedStore unread]]];
+    [infoLabel setText: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [sharedStore total], [sharedStore unread]]];
 }
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop

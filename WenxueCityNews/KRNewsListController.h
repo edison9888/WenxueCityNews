@@ -10,7 +10,7 @@
 
 @interface KRNewsListController : UITableViewController
 {
-    UIBarButtonItem* infoLabel;
+    UILabel* infoLabel;
 }
 - (IBAction)refreshNews:(id)sender;
 - (IBAction)systemConfig:(id)sender;

@@ -54,9 +54,17 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 - (void)viewDidLoad
 {
     headerImageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(180));
+    
+    infoLabel = [[UILabel alloc] init];
+    [infoLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    infoLabel.frame =  CGRectMake(0.0, 0.0, 128, 32);
+    infoLabel.backgroundColor = [UIColor clearColor];
+    infoLabel.textColor = [UIColor whiteColor];
+    UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithCustomView:infoLabel];
+
     UIBarButtonItem* space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
     UIBarButtonItem *shareButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)] autorelease];
-    [self setToolbarItems:[NSArray arrayWithObjects: space, shareButtonItem, nil]];
+    [self setToolbarItems:[NSArray arrayWithObjects: infoItem, space, shareButtonItem, nil]];
 }
 
 - (IBAction)shareNews:(id)sender
@@ -130,6 +138,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     if (page != [self pageCount]-1)
         footerLabel.text = [[sharedStore itemAt:page+1] title];
     
+    [infoLabel setText: [NSString stringWithFormat:@"%d/%d", page, [self pageCount]]];
+
     return webView;
 }
 

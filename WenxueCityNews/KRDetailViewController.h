@@ -28,7 +28,9 @@
 #import "VerticalSwipeScrollView.h"
 
 @interface KRDetailViewController : UIViewController <VerticalSwipeScrollViewDelegate, UIScrollViewDelegate>
-
+{
+    UILabel* infoLabel;
+}
 @property (nonatomic, retain) IBOutlet UIView* headerView;
 @property (nonatomic, retain) IBOutlet UIImageView* headerImageView;
 @property (nonatomic, retain) IBOutlet UILabel* headerLabel;
