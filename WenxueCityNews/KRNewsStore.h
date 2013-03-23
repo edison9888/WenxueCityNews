@@ -10,6 +10,8 @@
 
 #import <CoreData/CoreData.h>
 
+#define FETCH_INTERVAL 300
+
 @class KRNews;
 
 @interface KRNewsStore : NSObject
@@ -19,6 +21,7 @@
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
     BOOL loading;
+    NSTimeInterval dateFetched;    
 }
 
 + (KRNewsStore *)sharedStore;

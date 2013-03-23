@@ -119,6 +119,9 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     label.textColor = [UIColor whiteColor];
     label.text = [[sharedStore itemAt:page] title];
     self.navigationItem.titleView = label;
+
+    KRNews* news = [[KRNewsStore sharedStore] itemAt: page];
+    [news setRead: YES];
     
     //self.navigationItem.title = [[sharedStore itemAt:page] title];
     
@@ -160,7 +163,17 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- font -->" withString: [NSString stringWithFormat:@"%d", fontSize]];
     [webView loadHTMLString:htmlString baseURL:nil];
     
+    UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(returnToHome)];
+    [mSwipeUpRecognizer setDirection: UISwipeGestureRecognizerDirectionRight];
+    [webView addGestureRecognizer:mSwipeUpRecognizer];    
+    [mSwipeUpRecognizer release];
+
     return webView;
+}
+
+- (void) returnToHome
+{
+    [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 - (void) hideGradientBackground:(UIView*)theView

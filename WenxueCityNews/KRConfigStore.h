@@ -15,8 +15,8 @@
 {
     NSArray *nameArray;
 }
-@property(nonatomic) NSNumber* pageSize;
-@property(nonatomic) NSNumber* fontSize;
+@property(nonatomic, copy) NSNumber* pageSize;
+@property(nonatomic, copy) NSNumber* fontSize;
 
 + (KRConfigStore *)sharedStore;
 - (void)save;

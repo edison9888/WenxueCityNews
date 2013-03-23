@@ -23,19 +23,18 @@
     // Override point for customization after application launch.
     
     // Create a ItemsViewController
-    KRNewsListController *itemsViewController = [[KRNewsListController alloc] init];
+    listController = [[KRNewsListController alloc] init];
     
     // Create an instance of a UINavigationController
     // its stack contains only itemsViewController
-    UINavigationController *navController = [[UINavigationController alloc]
-                                             initWithRootViewController:itemsViewController];
-    navController.delegate = self;
+    navigationController = [[UINavigationController alloc] initWithRootViewController:listController];
+    navigationController.delegate = self;
     
-    navController.navigationBar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
-    navController.toolbar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    navigationController.navigationBar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    navigationController.toolbar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
 
     // Place navigation controller's view in the window hierarchy
-    [[self window] setRootViewController:navController];
+    [[self window] setRootViewController:navigationController];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -60,9 +59,6 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[KRConfigStore sharedStore] save];
-    int numbOfItems = [[[KRConfigStore sharedStore] pageSize] intValue];
-    [[KRNewsStore sharedStore] saveItems: numbOfItems];
-    NSLog(@"application state saved");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -72,13 +68,19 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    BOOL visible = navigationController.visibleViewController == listController;
+    if(visible) {
+        [listController refreshNews:nil];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    int numbOfItems = [[[KRConfigStore sharedStore] pageSize] intValue];
+    [[KRNewsStore sharedStore] saveItems: numbOfItems];
+    NSLog(@"application terminated");
 }
 
 - (void)saveContext

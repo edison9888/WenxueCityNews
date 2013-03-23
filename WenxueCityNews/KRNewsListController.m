@@ -12,6 +12,7 @@
 #import "KRNewsViewController.h"
 #import "KRSettingViewController.h"
 #import "KRDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation KRNewsListController
 
@@ -63,13 +64,26 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    KRNewsStore *sharedStore = [KRNewsStore sharedStore];
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    for(int i=0;i<[sharedStore total];i++) {
+        if([[sharedStore itemAt:i] read] == YES) {
+            NSIndexPath *ip = [NSIndexPath indexPathForRow: i inSection: 0];
+            [items addObject: ip];
+        }
+    }
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:items withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+    [self updateInfoLabel];    
 }
 
 - (IBAction)refreshNews:(id)sender
 {
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
-    NSLog(@"Fetch latest items: %d - ", maxNewsId);
-    [self fetchNews: 0 to:maxNewsId max:100 appendToTop: YES];
+    int maxNum = 100;
+    NSLog(@"Fetch latest %d items from %d - ", maxNum, maxNewsId);
+    [self fetchNews: 0 to:maxNewsId max:maxNum appendToTop: YES];
 }
 
 - (IBAction)systemConfig:(id)sender
@@ -177,8 +191,11 @@
                     reuseIdentifier:@"UITableViewReloadCell"];
         }
        
-        [[cell textLabel] setText: NSLocalizedString(@"载入更多...", @"loadMore")];
+        [[cell imageView] setImage: [UIImage imageNamed:@"Spinner.gif"]];
+        [[cell textLabel] setText: NSLocalizedString(@"显示下20条...", @"loadMore")];
         cell.textLabel.textAlignment = UITextAlignmentCenter;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:15.0];
+
         [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
         return cell;
    }
@@ -191,13 +208,8 @@
         KRNews *selectedNews = [[KRNewsStore sharedStore] itemAt:index];
         [selectedNews setRead: YES];
 
-        [self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView endUpdates];
-
         KRDetailViewController *detailViewController = [[KRDetailViewController alloc] init];
         [detailViewController setStartIndex: index];
-        [self updateInfoLabel];
         
         // Push it onto the top of the navigation controller's stack
         [[self navigationController] pushViewController:detailViewController animated:YES];

@@ -196,8 +196,14 @@
 
 - (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
 {
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    if(now - dateFetched < FETCH_INTERVAL) {
+        return;
+    }
+    
     if(loading) return;
     loading = YES;
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
@@ -212,15 +218,18 @@
         for (id jsonNews in jsonNewsArray)
         {
             NSString *newsId = [jsonNews valueForKeyPath:@"id"];
-            NSString *title = [jsonNews valueForKeyPath:@"title"];
-            NSString *content = [jsonNews valueForKeyPath:@"content"];
             id oldKey = [keyedItems objectForKey:newsId];
             if(!oldKey) {
                 KRNews *news = [NSEntityDescription insertNewObjectForEntityForName:@"KRNews"
                                                              inManagedObjectContext:context];
+                NSString *title = [jsonNews valueForKeyPath:@"title"];
+                NSString *content = [jsonNews valueForKeyPath:@"content"];
+                NSString *dateCreated = [jsonNews valueForKeyPath:@"dateCreated"];
+
                 [news setNewsId: [newsId intValue]];
                 [news setTitle:[title base64DecodedString]];
                 [news setContent:[content base64DecodedString]];
+                [news setDateCreated:(NSTimeInterval)[dateCreated intValue] / 1000];
                 [news setRead:NO];
                 if(appendToTop == NO) {
                     [self addItem:news];
@@ -232,6 +241,7 @@
         }
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         loading = NO;
+        dateFetched = now;
         handler(ret, nil);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
