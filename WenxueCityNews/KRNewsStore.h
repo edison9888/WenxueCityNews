@@ -10,7 +10,7 @@
 
 #import <CoreData/CoreData.h>
 
-#define FETCH_INTERVAL 300
+#define FETCH_INTERVAL 300 // 5 minutes
 
 @class KRNews;
 

@@ -68,21 +68,13 @@
     [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    KRNewsStore *sharedStore = [KRNewsStore sharedStore];
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    for(int i=0;i<[sharedStore total];i++) {
-        if([[sharedStore itemAt:i] read] == YES) {
-            NSIndexPath *ip = [NSIndexPath indexPathForRow: i inSection: 0];
-            [items addObject: ip];
-        }
-    }
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:items withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView endUpdates];
-    [self updateInfoLabel];    
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
+    [self updateInfoLabel];
 }
+
 
 - (IBAction)refreshNews:(id)sender
 {
