@@ -194,10 +194,10 @@
 }
 
 
-- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
+- (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop force:(BOOL)force withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
 {
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-    if(appendToTop == YES) {
+    if(force == NO) {
         if(now - dateFetched < FETCH_INTERVAL) {
             return;
         }
@@ -242,7 +242,7 @@
         }
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         loading = NO;
-        if(appendToTop == YES) dateFetched = now;
+        dateFetched = now;
         handler(ret, nil);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

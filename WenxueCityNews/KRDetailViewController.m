@@ -163,7 +163,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970: [news dateCreated]];
     NSDateFormatter * dateFormatter = [[[NSDateFormatter alloc] init]autorelease];
-    [dateFormatter setDateFormat:@"MM月dd日 hh:mm"];
+    [dateFormatter setDateFormat:@"M月dd日 h:mm"];
     NSString * dateString = [dateFormatter stringFromDate: date];
     
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- title -->" withString:[news title]];

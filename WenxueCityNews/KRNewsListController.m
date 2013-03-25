@@ -66,7 +66,7 @@
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
-    [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES];
+    [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES force: YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,7 +82,7 @@
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
     int maxNum = 100;
     NSLog(@"Fetch latest %d items from %d - ", maxNum, maxNewsId);
-    [self fetchNews: 0 to:maxNewsId max:maxNum appendToTop: YES];
+    [self fetchNews: 0 to:maxNewsId max:maxNum appendToTop: YES force: sender != nil];
 }
 
 - (IBAction)systemConfig:(id)sender
@@ -107,9 +107,9 @@
     [infoLabel setText: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [sharedStore total], [sharedStore unread]]];
 }
 
-- (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop
+- (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop force: (BOOL)force
 {    
-    [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop withHandler:^(NSArray *newsArray, NSError *error) {
+    [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop force:force withHandler:^(NSArray *newsArray, NSError *error) {
         NSArray *allItems = [[KRNewsStore sharedStore] allItems];
         NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];
         for(id news in newsArray)
@@ -150,7 +150,7 @@
         [refreshControl endRefreshing];
     });
     
-    [self refreshNews:nil];
+    [self refreshNews:refreshControl];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -218,7 +218,7 @@
     } else {
         int minNewsId = [[KRNewsStore sharedStore] minNewsId];
         NSLog(@"Fetch previous 20 items: %d - ", minNewsId);
-        [self fetchNews: minNewsId to:0 max:20 appendToTop:NO];
+        [self fetchNews: minNewsId to:0 max:20 appendToTop:NO force: YES];
     }
 }
 

@@ -4,14 +4,28 @@
         <title> </title>
         <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
         <style type="text/css">
+            body {
+                background-color:#ffffff; font-size: <!-- font -->%;
+            }
             img {
                 max-width: 100%;
                 height: auto;
             }
+            .title {
+                float:left;
+                font-weight:bold;
+                font-size:120%;
+            }
+            .date {
+                float:right;font-size:90%;
+            }
+            .content {
+                clear:both; overflow: hidden;
+            }
         </style>
     </head>
-    <body style='background-color:#ffffff; font-size: <!-- font -->%;'>
-        <div><h3 style="float:left;"><!-- title --></h3><h3 style="float:right;font-size:90%;"><!-- date --></h3></div>        
-        <div style='clear:both; overflow: hidden;'><!-- content --></div>
+    <body>
+        <div><span class="title"><!-- title --></span><span class="date"><!-- date --></span></div>
+        <div class="content"><!-- content --></div>
     </body>
 </html>
