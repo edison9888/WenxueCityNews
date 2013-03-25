@@ -197,10 +197,11 @@
 - (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
 {
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-    if(now - dateFetched < FETCH_INTERVAL) {
-        return;
+    if(appendToTop == YES) {
+        if(now - dateFetched < FETCH_INTERVAL) {
+            return;
+        }
     }
-    
     if(loading) return;
     loading = YES;
     
@@ -229,7 +230,7 @@
                 [news setNewsId: [newsId intValue]];
                 [news setTitle:[title base64DecodedString]];
                 [news setContent:[content base64DecodedString]];
-                [news setDateCreated:(NSTimeInterval)[dateCreated intValue] / 1000];
+                [news setDateCreated:(NSTimeInterval)[dateCreated longLongValue] / 1000];
                 [news setRead:NO];
                 if(appendToTop == NO) {
                     [self addItem:news];
@@ -241,7 +242,7 @@
         }
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         loading = NO;
-        dateFetched = now;
+        if(appendToTop == YES) dateFetched = now;
         handler(ret, nil);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

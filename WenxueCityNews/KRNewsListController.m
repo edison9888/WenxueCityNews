@@ -13,6 +13,7 @@
 #import "KRSettingViewController.h"
 #import "KRDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KRAppDelegate.h"
 
 @implementation KRNewsListController
 
@@ -91,8 +92,8 @@
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:settingController];
     
-    navController.navigationBar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
-    navController.toolbar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    navController.navigationBar.tintColor = APP_COLOR;
+    navController.toolbar.tintColor = APP_COLOR;
     
     [navController setModalPresentationStyle:UIModalPresentationFormSheet];
     [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
@@ -174,7 +175,7 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
             UIView *selectionColor = [[UIView alloc] init];
-            selectionColor.backgroundColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+            selectionColor.backgroundColor = APP_COLOR;
             cell.selectedBackgroundView = selectionColor;           
         }
         

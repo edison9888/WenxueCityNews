@@ -8,6 +8,7 @@
 
 #import "KRSettingViewController.h"
 #import "KRConfigStore.h"
+#import "KRAppDelegate.h"
 
 @implementation KRSettingViewController
 
@@ -34,7 +35,7 @@
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissAnimated:)];
     self.navigationItem.leftBarButtonItem = doneButton;
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    self.navigationItem.leftBarButtonItem.tintColor = APP_COLOR;
 }
 
 - (IBAction)dismissAnimated:(id)sender

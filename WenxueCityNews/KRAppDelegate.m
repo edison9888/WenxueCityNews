@@ -33,8 +33,8 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:listController];
     navigationController.delegate = self;
     
-    navigationController.navigationBar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
-    navigationController.toolbar.tintColor = [UIColor colorWithRed:83/255.0f  green:141/255.0f  blue:194/255.0f alpha:1.0f];
+    navigationController.navigationBar.tintColor = APP_COLOR;
+    navigationController.toolbar.tintColor = APP_COLOR;
 
     // Place navigation controller's view in the window hierarchy
     [[self window] setRootViewController:navigationController];

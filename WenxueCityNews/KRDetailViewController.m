@@ -158,17 +158,16 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     NSString* htmlFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/DetailView.html"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     
-    KRNews* news = [[KRNewsStore sharedStore] itemAt: index];
+    KRNews* news = [[KRNewsStore sharedStore] itemAt: index];    
+    int fontSize = [[KRConfigStore sharedStore] textSize];
     
-    int fontSize = [[[KRConfigStore sharedStore] fontSize] intValue];
-    switch(fontSize)
-    {
-        case 0: fontSize = 75; break;
-        case 1: fontSize = 100; break;
-        default: fontSize = 125; break;
-    }
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970: [news dateCreated]];
+    NSDateFormatter * dateFormatter = [[[NSDateFormatter alloc] init]autorelease];
+    [dateFormatter setDateFormat:@"MM月dd日 hh:mm"];
+    NSString * dateString = [dateFormatter stringFromDate: date];
     
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- title -->" withString:[news title]];
+    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- date -->" withString:dateString];
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:[news content]];
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- font -->" withString: [NSString stringWithFormat:@"%d", fontSize]];
     [webView loadHTMLString:htmlString baseURL:nil];

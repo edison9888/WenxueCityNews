@@ -45,11 +45,11 @@
             fontSize = [NSNumber numberWithInt: 1];
         } else {
             int p = [fontSize intValue];
-            if(p < 0 || p > 2) {
+            if(p < 0 || p > 3) {
                 fontSize = [NSNumber numberWithInt: 1];
             }
         }
-        nameArray = [NSArray arrayWithObjects:@"小",@"中",@"大", nil];
+        nameArray = [NSArray arrayWithObjects:@"小",@"中",@"大", @"超大", nil];
     }
     return self;
 }
@@ -63,6 +63,19 @@
 -(NSString*)sizeName:(int)size
 {
     return [nameArray objectAtIndex:size];
+}
+
+-(int)textSize
+{
+    int textSize = [fontSize intValue];
+    switch(textSize)
+    {
+        case 0: textSize = 75; break;
+        case 1: textSize = 100; break;
+        case 2: textSize = 125; break;
+        default: textSize = 155; break;
+    }
+    return textSize;
 }
 
 @end
