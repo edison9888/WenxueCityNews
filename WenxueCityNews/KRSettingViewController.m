@@ -19,7 +19,7 @@
     if (self) {
         UINavigationItem *n = [self navigationItem];
         
-        [n setTitle:NSLocalizedString(@"设置", @"appConfig")];
+        [n setTitle:@"设置"];
         
         numbOfItems = [[[KRConfigStore sharedStore] pageSize] intValue];
         fontSize = [[[KRConfigStore sharedStore] fontSize] intValue];
@@ -105,7 +105,7 @@
                     reuseIdentifier:CellIdentifier2];
         }
         [[cell textLabel] setText: @"版本"];
-        [[cell detailTextLabel] setText: @"1.0.0"];
+        [[cell detailTextLabel] setText: APP_VERSION];
         [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
         return cell;        
     }

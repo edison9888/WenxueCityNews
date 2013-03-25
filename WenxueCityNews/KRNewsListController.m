@@ -24,7 +24,7 @@
     if (self) {
         UINavigationItem *n = [self navigationItem];
         
-        [n setTitle:NSLocalizedString(@"文学城新闻", @"appTitle")];
+        [n setTitle:@"文学城新闻"];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(storeUpdated:)
@@ -194,7 +194,7 @@
                     reuseIdentifier:@"UITableViewReloadCell"];
         }
        
-        [[cell textLabel] setText: NSLocalizedString(@"显示下20条...", @"loadMore")];
+        [[cell textLabel] setText: @"显示下20条..."];
         cell.textLabel.textAlignment = UITextAlignmentCenter;
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15.0];
 
