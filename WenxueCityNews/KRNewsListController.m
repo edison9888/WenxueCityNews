@@ -178,7 +178,8 @@
             UIView *selectionColor = [[UIView alloc] init];
             selectionColor.backgroundColor = APP_COLOR;
             cell.selectedBackgroundView = selectionColor;           
-        }
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
+       }
         
         [[cell textLabel] setText: [news title]];
         if([news read]) {
