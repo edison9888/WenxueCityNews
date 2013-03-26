@@ -121,6 +121,7 @@
             [ips addObject:ip];
         }
         [[self tableView] insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationNone];
+        [[self tableView] setContentOffset: CGPointZero animated:YES];
         [self updateInfoLabel];
     }];
 }
