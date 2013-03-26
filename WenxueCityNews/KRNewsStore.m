@@ -207,7 +207,7 @@
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    NSString * url = [[NSString alloc] initWithFormat:@"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d", from, to, max];
+    NSString * url = [[NSString alloc] initWithFormat:BASE_URL_PATTERN, from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetUrl];
     

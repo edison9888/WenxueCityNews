@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 #define APP_COLOR [UIColor colorWithRed:75/255.0f  green:101/255.0f  blue:157/255.0f alpha:1.0f]
-#define APP_VERSION @"1.1.0"
 
 @class KRNewsListController;
 

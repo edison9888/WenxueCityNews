@@ -170,7 +170,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- date -->" withString:dateString];
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:[news content]];
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- font -->" withString: [NSString stringWithFormat:@"%d", fontSize]];
-    [webView loadHTMLString:htmlString baseURL:nil];
+    [webView loadHTMLString:htmlString baseURL: [NSURL URLWithString: BASE_URL]];
     
     UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(returnToHome)];
     [mSwipeUpRecognizer setDirection: UISwipeGestureRecognizerDirectionRight];

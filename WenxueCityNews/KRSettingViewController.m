@@ -105,7 +105,7 @@
                     reuseIdentifier:CellIdentifier2];
         }
         [[cell textLabel] setText: @"版本"];
-        [[cell detailTextLabel] setText: APP_VERSION];
+        [[cell detailTextLabel] setText: [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]];
         [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
         return cell;        
     }
