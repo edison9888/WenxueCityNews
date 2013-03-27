@@ -199,10 +199,14 @@
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     if(force == NO) {
         if(now - dateFetched < FETCH_INTERVAL) {
+            handler([NSArray arrayWithObjects: nil], nil);
             return;
         }
     }
-    if(loading) return;
+    if(loading) {
+        handler([NSArray arrayWithObjects: nil], nil);
+        return;
+    }
     loading = YES;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

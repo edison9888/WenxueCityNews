@@ -42,6 +42,7 @@
 		B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7416EB3CA700A4BA11 /* Default@2x.png */; };
 		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
+		B58468CC170333D0000F137F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B58468CB17033371000F137F /* MBProgressHUD.m */; };
 		B58A901416FD3DE200E4E020 /* Spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = B58A901316FD3DE200E4E020 /* Spinner.gif */; };
 		B58A902D16FD537000E4E020 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A902C16FD537000E4E020 /* SystemConfiguration.framework */; };
 		B58A902F16FD537E00E4E020 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A902E16FD537E00E4E020 /* MessageUI.framework */; };
@@ -121,6 +122,8 @@
 		B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
+		B58468CA17033371000F137F /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		B58468CB17033371000F137F /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		B58A0CDB17031F72007EF970 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShareSDKLocalizable.strings"; sourceTree = "<group>"; };
 		B58A901316FD3DE200E4E020 /* Spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Spinner.gif; sourceTree = "<group>"; };
 		B58A901916FD3F1D00E4E020 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -255,6 +258,7 @@
 		B576CC5216EB3CA700A4BA11 = {
 			isa = PBXGroup;
 			children = (
+				B58468C91703335E000F137F /* MBProgressHUD */,
 				B58A903216FD545300E4E020 /* ShareSDK_v1.2.5 */,
 				B572FA3316FB2E430065CF1F /* Resources */,
 				B5353E3216EB6DFA00A69DA8 /* Base64 */,
@@ -331,6 +335,15 @@
 				B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B58468C91703335E000F137F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B58468CA17033371000F137F /* MBProgressHUD.h */,
+				B58468CB17033371000F137F /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		B58A903216FD545300E4E020 /* ShareSDK_v1.2.5 */ = {
@@ -440,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58468CC170333D0000F137F /* MBProgressHUD.m in Sources */,
 				B52E012B16FB3B0F00A42462 /* KRDetailViewController.m in Sources */,
 				B576CC6D16EB3CA700A4BA11 /* main.m in Sources */,
 				B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */,

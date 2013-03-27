@@ -14,6 +14,7 @@
 #import "KRDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "KRAppDelegate.h"
+#import "MBProgressHUD.h"
 
 @implementation KRNewsListController
 
@@ -39,15 +40,14 @@
     [super viewDidLoad];
 
     [self.navigationController setToolbarHidden:NO];
-    
+        
     UIImage *refreshImage = [UIImage imageNamed:@"refresh"];
 //    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshNews:)];
     UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(refreshNews:)];
     
     UIImage *configImage = [UIImage imageNamed:@"cog"];
     UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(systemConfig:)];
-    
-    
+        
     infoLabel = [[UILabel alloc] init];
     [infoLabel setFont:[UIFont boldSystemFontOfSize:12]];
     infoLabel.frame =  CGRectMake(0.0, 0.0, 196, 32);
@@ -108,7 +108,10 @@
 }
 
 - (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop force: (BOOL)force
-{    
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"正在载入...";
+    
     [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop force:force withHandler:^(NSArray *newsArray, NSError *error) {
         NSArray *allItems = [[KRNewsStore sharedStore] allItems];
         NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];
@@ -128,6 +131,7 @@
             [[self tableView] scrollToRowAtIndexPath: [ips objectAtIndex:0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
         }
         [self updateInfoLabel];
+        [hud hide:YES];
     }];
 }
 
