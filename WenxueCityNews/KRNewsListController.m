@@ -121,7 +121,12 @@
             [ips addObject:ip];
         }
         [[self tableView] insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationNone];
-        [[self tableView] setContentOffset: CGPointZero animated:YES];
+        if(appendToTop) {
+            //[[self tableView] setContentOffset: CGPointZero animated:YES];
+        }
+        if([ips count]) {
+            [[self tableView] scrollToRowAtIndexPath: [ips objectAtIndex:0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
+        }
         [self updateInfoLabel];
     }];
 }
