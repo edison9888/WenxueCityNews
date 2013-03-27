@@ -29,6 +29,7 @@
 #import "KRConfigStore.h"
 #import "KRNewsStore.h"
 #import "KRNews.h"
+#import <ShareSDK/ShareSDK.h>
 
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
@@ -69,7 +70,35 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 - (IBAction)shareNews:(id)sender
 {
-    NSLog(@"Share this news");
+    KRNews* news = [[KRNewsStore sharedStore] itemAt: self.verticalSwipeScrollView.currentPageIndex];
+    NSString* htmlString = [self htmlContentOfNews: news];
+    
+    id publishContent = [ShareSDK publishContent:htmlString
+                                  defaultContent:@""
+                                           image:nil
+                                    imageQuality:0.8
+                                       mediaType:SSPublishContentMediaTypeNews
+                                           title:[NSString stringWithFormat:@"[分享自文学城新闻]%@", [news title]]
+                                             url:nil
+                                    musicFileUrl:nil
+                                         extInfo:nil
+                                        fileData:nil];
+    
+    id shareList = [ShareSDK getShareListWithType:ShareTypeMail, ShareTypeFacebook, ShareTypeGooglePlus, nil];
+    [ShareSDK showShareActionSheet:self
+                         shareList:shareList
+                           content:publishContent
+                    statusBarTips:YES
+                    oneKeyShareList:nil
+                    shareViewStyle:ShareViewStyleAppRecommend
+                    shareViewTitle:@"内容分享"
+                            result:^(ShareType type, SSPublishContentState state, id statusInfo, id error, BOOL end) {
+                                if (state == SSPublishContentStateSuccess) {
+                                    NSLog(@"成功!");
+                                } else if(state == SSPublishContentStateFail) {
+                                    NSLog(@"失败!");
+                                }
+                            }];
 }
 
 - (void) rotateImageView:(UIImageView*)imageView angle:(CGFloat)angle
@@ -119,18 +148,18 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     self.previousPage = page > 0 ? [self createWebViewForIndex:page-1] : nil;
     self.nextPage = (page == ([self pageCount]-1)) ? nil : [self createWebViewForIndex:page+1];
     
+    KRNews* news = [sharedStore itemAt: page];
+    [news setRead: YES];
+    
     CGRect frame = CGRectMake(0, 0, 400, 44);
     UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:15.0];
     label.textAlignment = UITextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = [[sharedStore itemAt:page] title];
+    label.text = [news title];
     self.navigationItem.titleView = label;
 
-    KRNews* news = [[KRNewsStore sharedStore] itemAt: page];
-    [news setRead: YES];
-    
     //self.navigationItem.title = [[sharedStore itemAt:page] title];
     
     if (page > 0)
@@ -139,7 +168,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         footerLabel.text = [[sharedStore itemAt:page+1] title];
     
     [infoLabel setText: [NSString stringWithFormat:@"%d/%d", (page + 1), [self pageCount]]];
-
+    
     return webView;
 }
 
@@ -154,11 +183,24 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     webView.opaque = NO;
     [webView setBackgroundColor:[UIColor clearColor]];
     [self hideGradientBackground:webView];
+        
+    KRNews* news = [[KRNewsStore sharedStore] itemAt: index];    
+    NSString* htmlString = [self htmlContentOfNews: news];
+    [webView loadHTMLString:htmlString baseURL: [NSURL URLWithString: BASE_URL]];
     
+    UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(returnToHome)];
+    [mSwipeUpRecognizer setDirection: UISwipeGestureRecognizerDirectionRight];
+    [webView addGestureRecognizer:mSwipeUpRecognizer];    
+    [mSwipeUpRecognizer release];
+
+    return webView;
+}
+
+- (NSString*) htmlContentOfNews:(KRNews*)news
+{
     NSString* htmlFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/DetailView.html"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     
-    KRNews* news = [[KRNewsStore sharedStore] itemAt: index];    
     int fontSize = [[KRConfigStore sharedStore] textSize];
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970: [news dateCreated]];
@@ -170,14 +212,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- date -->" withString:dateString];
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:[news content]];
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- font -->" withString: [NSString stringWithFormat:@"%d", fontSize]];
-    [webView loadHTMLString:htmlString baseURL: [NSURL URLWithString: BASE_URL]];
-    
-    UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(returnToHome)];
-    [mSwipeUpRecognizer setDirection: UISwipeGestureRecognizerDirectionRight];
-    [webView addGestureRecognizer:mSwipeUpRecognizer];    
-    [mSwipeUpRecognizer release];
-
-    return webView;
+    return htmlString;
 }
 
 - (void) returnToHome

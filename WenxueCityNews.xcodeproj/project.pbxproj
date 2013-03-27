@@ -36,7 +36,6 @@
 		B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6016EB3CA700A4BA11 /* Foundation.framework */; };
 		B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6216EB3CA700A4BA11 /* CoreGraphics.framework */; };
 		B576CC6516EB3CA700A4BA11 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B576CC6416EB3CA700A4BA11 /* CoreData.framework */; };
-		B576CC6B16EB3CA700A4BA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */; };
 		B576CC6D16EB3CA700A4BA11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC6C16EB3CA700A4BA11 /* main.m */; };
 		B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B576CC7016EB3CA700A4BA11 /* KRAppDelegate.m */; };
 		B576CC7316EB3CA700A4BA11 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7216EB3CA700A4BA11 /* Default.png */; };
@@ -95,7 +94,6 @@
 		B5353E3416EB6DFA00A69DA8 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		B55321CB16F9785C002D9A93 /* KRSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSettingViewController.h; sourceTree = "<group>"; };
 		B55321CC16F9785C002D9A93 /* KRSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSettingViewController.m; sourceTree = "<group>"; };
-		B55321CE16F99261002D9A93 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B56DB69F16F89ECA00B88AD1 /* reload_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_24.png; sourceTree = "<group>"; };
 		B56DB6A116F89EDD00B88AD1 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		B56DB6A316F8A39300B88AD1 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
@@ -123,6 +121,7 @@
 		B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
+		B58A0CDB17031F72007EF970 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShareSDKLocalizable.strings"; sourceTree = "<group>"; };
 		B58A901316FD3DE200E4E020 /* Spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Spinner.gif; sourceTree = "<group>"; };
 		B58A901916FD3F1D00E4E020 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B58A902C16FD537000E4E020 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -325,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				B576CC6816EB3CA700A4BA11 /* WenxueCityNews-Info.plist */,
-				B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */,
 				B576CC6C16EB3CA700A4BA11 /* main.m */,
 				B576CC6E16EB3CA700A4BA11 /* WenxueCityNews-Prefix.pch */,
 				B576CC7216EB3CA700A4BA11 /* Default.png */,
@@ -411,7 +409,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B576CC6B16EB3CA700A4BA11 /* InfoPlist.strings in Resources */,
 				B576CC7316EB3CA700A4BA11 /* Default.png in Resources */,
 				B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */,
 				B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */,
@@ -471,18 +468,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B576CC6916EB3CA700A4BA11 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B55321CE16F99261002D9A93 /* zh-Hans */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B58A903516FD545300E4E020 /* en */,
+				B58A0CDB17031F72007EF970 /* zh-Hans */,
 			);
 			name = ShareSDKLocalizable.strings;
 			sourceTree = "<group>";
