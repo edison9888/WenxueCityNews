@@ -6,7 +6,6 @@
 //
 
 #import "KRNewsListController.h"
-#import "ODRefreshControl.h"
 #import "KRNewsStore.h"
 #import "KRNews.h"
 #import "KRNewsViewController.h"
@@ -15,6 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KRAppDelegate.h"
 #import "MBProgressHUD.h"
+#import "ODRefreshControl.h"
 
 @implementation KRNewsListController
 
@@ -31,6 +31,8 @@
                                                  selector:@selector(storeUpdated:)
                                                      name:@"storeUpdated"
                                                    object:nil];        
+        [[self tabBarItem] setTitle: @"新闻"];
+        [[self tabBarItem] setImage: [UIImage imageNamed:@"rss"]];
     }
     return self;
 }
@@ -38,51 +40,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self.navigationController setToolbarHidden:NO];
         
-    UIImage *refreshImage = [UIImage imageNamed:@"refresh"];
-//    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshNews:)];
-    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithImage:refreshImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(refreshNews:)];
-    
-    UIImage *configImage = [UIImage imageNamed:@"cog"];
-    UIBarButtonItem* configButton = [[UIBarButtonItem alloc] initWithImage:configImage landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:self action:@selector(systemConfig:)];
-        
-    infoLabel = [[UILabel alloc] init];
-    [infoLabel setFont:[UIFont boldSystemFontOfSize:12]];
-    infoLabel.frame =  CGRectMake(0.0, 0.0, 196, 32);
-    infoLabel.backgroundColor = [UIColor clearColor];
-    infoLabel.textAlignment = UITextAlignmentCenter;
-    infoLabel.textColor = [UIColor whiteColor];
-    UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithCustomView:infoLabel];
-    
-    UIBarButtonItem* space1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem* space2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-
-    [self setToolbarItems:[NSArray arrayWithObjects:refreshButton, space1, infoItem, space2, configButton, nil]];
-    
-    [self updateInfoLabel];
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshNews:)];
+    self.navigationItem.rightBarButtonItem = refreshButton;
     
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
-    [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES force: YES];
+    [self fetchNews:0 to:maxNewsId max:40 appendToTop: YES force: YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[self tableView] reloadData];
-    [self updateInfoLabel];
 }
-
 
 - (IBAction)refreshNews:(id)sender
 {
     int maxNewsId = [[KRNewsStore sharedStore] maxNewsId];
     int maxNum = 100;
     NSLog(@"Fetch latest %d items from %d - ", maxNum, maxNewsId);
-    [self fetchNews: 0 to:maxNewsId max:maxNum appendToTop: YES force: sender != nil];
+    [self fetchNews: 0 to:maxNewsId max:maxNum appendToTop: YES force: sender != nil completion:^() {
+        if([sender respondsToSelector:@selector(endRefreshing)]) {
+            [sender performSelector:@selector(endRefreshing)];
+        }
+    }];
 }
 
 - (IBAction)systemConfig:(id)sender
@@ -101,37 +84,37 @@
     [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (void) updateInfoLabel
+- (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop force: (BOOL)force completion:(void (^)())completion
 {
-    KRNewsStore *sharedStore = [KRNewsStore sharedStore];
-    [infoLabel setText: [NSString stringWithFormat:@"%d 条新闻, %d 条未读", [sharedStore total], [sharedStore unread]]];
-}
-
-- (void) fetchNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop force: (BOOL)force
-{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"正在载入...";
+    MBProgressHUD *hud = nil;
+    if(force) {
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"正在载入...";
+    }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [[KRNewsStore sharedStore] loadNews:from to:to max:max appendToTop:appendToTop force:force withHandler:^(NSArray *newsArray, NSError *error) {
-        NSArray *allItems = [[KRNewsStore sharedStore] allItems];
-        NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];
-        for(id news in newsArray)
-        {
-            //NSLog(@"News(%d) - %@", [news newsId], [news title]);
-            int lastRow = [allItems indexOfObject:news];
-            
-            NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
-            [ips addObject:ip];
+        if(newsArray) {
+            NSArray *allItems = [[KRNewsStore sharedStore] allItems];
+            NSMutableArray  *ips = [[NSMutableArray alloc] initWithCapacity: [newsArray count]];
+            for(id news in newsArray)
+            {
+                //NSLog(@"News(%d) - %@", [news newsId], [news title]);
+                int lastRow = [allItems indexOfObject:news];
+                
+                NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+                [ips addObject:ip];
+            }
+            [[self tableView] insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationNone];
+            if([ips count]) {
+                [[self tableView] scrollToRowAtIndexPath: [ips objectAtIndex:0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
+            }
         }
-        [[self tableView] insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationNone];
-        if(appendToTop) {
-            //[[self tableView] setContentOffset: CGPointZero animated:YES];
+        if(hud) {
+            [hud hide:YES];
         }
-        if([ips count]) {
-            [[self tableView] scrollToRowAtIndexPath: [ips objectAtIndex:0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
-        }
-        [self updateInfoLabel];
-        [hud hide:YES];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        if(completion) completion();
     }];
 }
 
@@ -139,8 +122,7 @@
 {
     NSLog(@"OK! %@", [NSThread currentThread]);
     [[self tableView] reloadData];
-    [self updateInfoLabel];
-    NSLog(@"DONE");
+    NSLog(@"storeUpdated");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -157,14 +139,12 @@
     double delayInSeconds = 3.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [refreshControl endRefreshing];
     });
     
     [self refreshNews:refreshControl];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[[KRNewsStore sharedStore] allItems] count] + 1;
 }
@@ -174,8 +154,7 @@
 {
     int index = [indexPath row];
     if(index < [[[KRNewsStore sharedStore] allItems] count]) {
-        KRNews *news = [[[KRNewsStore sharedStore] allItems]
-                        objectAtIndex:[indexPath row]];
+        KRNews *news = [[[KRNewsStore sharedStore] allItems] objectAtIndex:[indexPath row]];
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
         if (!cell) {
@@ -186,15 +165,17 @@
             
             UIView *selectionColor = [[UIView alloc] init];
             selectionColor.backgroundColor = APP_COLOR;
-            cell.selectedBackgroundView = selectionColor;           
+            cell.selectedBackgroundView = selectionColor;
             cell.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
-       }
-        
+        }
+        [[cell imageView] setContentMode: UIViewContentModeScaleAspectFit];
         [[cell textLabel] setText: [news title]];
         if([news read]) {
             [[cell imageView] setImage: [UIImage imageNamed:@"bullet_grey"]];
+            cell.textLabel.textColor = [UIColor colorWithRed:96/255.0f  green:96/255.0f  blue:96/255.0f alpha:1.0f];
         } else {
             [[cell imageView] setImage: [UIImage imageNamed:@"bullet_blue"]];
+            cell.textLabel.textColor = [UIColor blackColor];
         }
         return cell;
     } else {
@@ -204,14 +185,14 @@
                     initWithStyle:UITableViewCellStyleDefault
                     reuseIdentifier:@"UITableViewReloadCell"];
         }
-       
+        
         [[cell textLabel] setText: @"显示下20条..."];
         cell.textLabel.textAlignment = UITextAlignmentCenter;
         cell.textLabel.font = [UIFont boldSystemFontOfSize:15.0];
-
+        
         [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
         return cell;
-   }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -229,7 +210,7 @@
     } else {
         int minNewsId = [[KRNewsStore sharedStore] minNewsId];
         NSLog(@"Fetch previous 20 items: %d - ", minNewsId);
-        [self fetchNews: minNewsId to:0 max:20 appendToTop:NO force: YES];
+        [self fetchNews: minNewsId to:0 max:20 appendToTop:NO force: YES completion:nil];
     }
 }
 

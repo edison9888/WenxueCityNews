@@ -26,10 +26,11 @@
 //
 
 #import "VerticalSwipeScrollView.h"
+#import <MessageUI/MessageUI.h>
 
-@interface KRDetailViewController : UIViewController <VerticalSwipeScrollViewDelegate, UIScrollViewDelegate>
+@interface KRDetailViewController : UIViewController <VerticalSwipeScrollViewDelegate, UIScrollViewDelegate, MFMailComposeViewControllerDelegate>
 {
-    UILabel* infoLabel;
+    NSDateFormatter *dateFormatter;
 }
 @property (nonatomic, retain) IBOutlet UIView* headerView;
 @property (nonatomic, retain) IBOutlet UIImageView* headerImageView;

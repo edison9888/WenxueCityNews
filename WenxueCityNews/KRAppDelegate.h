@@ -14,8 +14,6 @@
 
 @interface KRAppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate>
 {
-    UINavigationController *navigationController;
-    KRNewsListController *listController;
 }
 @property (strong, nonatomic) UIWindow *window;
 

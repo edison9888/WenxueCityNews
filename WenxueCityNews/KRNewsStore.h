@@ -11,7 +11,7 @@
 #import <CoreData/CoreData.h>
 
 #define FETCH_INTERVAL 300 // 5 minutes
-#define BASE_URL_PATTERN @"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d"
+#define BASE_URL_PATTERN @"http://wenxuecity.cloudfoundry.com/news/mobilelist?from=%d&to=%d&max=%d&appKey=H5T7GDF9KJS"
 #define BASE_URL @"http://wenxuecity.cloudfoundry.com/"
 
 @class KRNews;
@@ -47,6 +47,8 @@
 - (int) maxNewsId;
 
 - (int) minNewsId;
+
+- (BOOL) loading;
 
 - (KRNews *)nextItem:(NSInteger)newsId;
 

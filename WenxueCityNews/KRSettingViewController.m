@@ -23,6 +23,9 @@
         
         numbOfItems = [[[KRConfigStore sharedStore] pageSize] intValue];
         fontSize = [[[KRConfigStore sharedStore] fontSize] intValue];
+
+        [[self tabBarItem] setTitle: @"设置"];
+        [[self tabBarItem] setImage: [UIImage imageNamed:@"cog"]];
     }
     return self;
 }
@@ -32,10 +35,6 @@
     [super viewDidLoad];
 
     self.clearsSelectionOnViewWillAppear = YES;
-    
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissAnimated:)];
-    self.navigationItem.leftBarButtonItem = doneButton;
-    self.navigationItem.leftBarButtonItem.tintColor = APP_COLOR;
 }
 
 - (IBAction)dismissAnimated:(id)sender
@@ -77,7 +76,7 @@
         }
         int itemCount = (index+1) * KR_PAGE_SIZE;
         [[cell textLabel] setText: [NSString stringWithFormat:@"%d 条新闻", itemCount]];
-        [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
         [cell setTag:itemCount];
         if(itemCount == numbOfItems) {
             [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
@@ -91,7 +90,7 @@
                     reuseIdentifier:CellIdentifier];
         }
         [[cell textLabel] setText: [[KRConfigStore sharedStore] sizeName: index]];
-        [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleBlue];
         [cell setTag:index];
        if(index == fontSize) {
             [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
@@ -130,6 +129,7 @@
     if(section > 1) return;
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO animated:YES];
 
     switch(section)
     {

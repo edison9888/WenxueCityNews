@@ -28,7 +28,6 @@
 		B56DB6A616F8A3B500B88AD1 /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A516F8A3B500B88AD1 /* cog@2x.png */; };
 		B56DB6A816F8A3C600B88AD1 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A716F8A3C600B88AD1 /* cog.png */; };
 		B56DB6AA16F8A3D100B88AD1 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = B56DB6A916F8A3D100B88AD1 /* refresh.png */; };
-		B572FA3116FB2E110065CF1F /* VerticalSwipeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B572FA3616FB33ED0065CF1F /* PullArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B572FA3416FB33ED0065CF1F /* PullArrow.png */; };
 		B572FA3716FB33ED0065CF1F /* PullArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B572FA3516FB33ED0065CF1F /* PullArrow@2x.png */; };
 		B572FA3B16FB39050065CF1F /* DetailView.html in Resources */ = {isa = PBXBuildFile; fileRef = B572FA3A16FB39050065CF1F /* DetailView.html */; };
@@ -42,23 +41,23 @@
 		B576CC7516EB3CA700A4BA11 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7416EB3CA700A4BA11 /* Default@2x.png */; };
 		B576CC7716EB3CA700A4BA11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */; };
 		B576FDA016F0C49200CDF3DE /* WenxueCityNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B576FD9E16F0C49100CDF3DE /* WenxueCityNews.xcdatamodeld */; };
-		B58468CC170333D0000F137F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B58468CB17033371000F137F /* MBProgressHUD.m */; };
 		B58A901416FD3DE200E4E020 /* Spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = B58A901316FD3DE200E4E020 /* Spinner.gif */; };
 		B58A902D16FD537000E4E020 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A902C16FD537000E4E020 /* SystemConfiguration.framework */; };
 		B58A902F16FD537E00E4E020 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A902E16FD537E00E4E020 /* MessageUI.framework */; };
 		B58A903116FD539900E4E020 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903016FD539900E4E020 /* libicucore.dylib */; };
-		B58A903D16FD545300E4E020 /* AGCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903316FD545300E4E020 /* AGCommon.framework */; };
-		B58A903E16FD545300E4E020 /* ShareSDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */; };
-		B58A903F16FD545300E4E020 /* QQApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903616FD545300E4E020 /* QQApi.framework */; };
-		B58A904016FD545300E4E020 /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B58A903716FD545300E4E020 /* Resource.bundle */; };
-		B58A904116FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903916FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a */; };
-		B58A904216FD545300E4E020 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A903C16FD545300E4E020 /* ShareSDK.framework */; };
+		B58B01271705C88900791B22 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B58B01261705C88900791B22 /* MBProgressHUD.m */; };
 		B58BBE3516F89702003C9175 /* bullet_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B58BBE3416F89702003C9175 /* bullet_grey.png */; };
 		B58C065116F4297200629932 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B58C065016F4297200629932 /* bullet_blue.png */; };
 		B58C733616FC8C5C003598F7 /* KRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58C733516FC8C5C003598F7 /* KRDetailViewController.xib */; };
 		B58C88CD1701281600A5E3FF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58C88CC1701281600A5E3FF /* MobileCoreServices.framework */; };
 		B58CE98B16F0AB2200EC27EA /* KRNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CE98A16F0AB2200EC27EA /* KRNews.m */; };
+		B5904F8D17047FCE00FB9A71 /* brief_case@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5904F8C17047FCE00FB9A71 /* brief_case@2x.png */; };
+		B5904F8F17047FE000FB9A71 /* rss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5904F8E17047FE000FB9A71 /* rss@2x.png */; };
+		B5904F9117047FED00FB9A71 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = B5904F9017047FED00FB9A71 /* rss.png */; };
+		B5904F9317047FFC00FB9A71 /* brief_case.png in Resources */ = {isa = PBXBuildFile; fileRef = B5904F9217047FFC00FB9A71 /* brief_case.png */; };
+		B5904F961704812000FB9A71 /* KRBookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5904F951704812000FB9A71 /* KRBookmarkViewController.m */; };
 		B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F3E9316F9E11700917B90 /* KRConfigStore.m */; };
+		B5A28E551705C8BC00A62CA8 /* VerticalSwipeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A28E541705C8BC00A62CA8 /* VerticalSwipeScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B5CCE0D516EE170900DD727C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D416EE170900DD727C /* README.md */; };
 		B5CCE0DA16EE17BA00DD727C /* launch1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0D916EE17BA00DD727C /* launch1.png */; };
 		B5CCE0DC16EE17C000DD727C /* launch2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE0DB16EE17C000DD727C /* launch2.png */; };
@@ -101,8 +100,6 @@
 		B56DB6A516F8A3B500B88AD1 /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
 		B56DB6A716F8A3C600B88AD1 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
 		B56DB6A916F8A3D100B88AD1 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
-		B572FA2F16FB2E110065CF1F /* VerticalSwipeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalSwipeScrollView.h; sourceTree = "<group>"; };
-		B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalSwipeScrollView.m; sourceTree = "<group>"; };
 		B572FA3416FB33ED0065CF1F /* PullArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PullArrow.png; sourceTree = "<group>"; };
 		B572FA3516FB33ED0065CF1F /* PullArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PullArrow@2x.png"; sourceTree = "<group>"; };
 		B572FA3916FB35E00065CF1F /* KRDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRDetailViewController.m; sourceTree = "<group>"; };
@@ -122,22 +119,13 @@
 		B576CC7616EB3CA700A4BA11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B576CC8116EB3CA700A4BA11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B576FD9F16F0C49100CDF3DE /* WenxueCityNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WenxueCityNews.xcdatamodel; sourceTree = "<group>"; };
-		B58468CA17033371000F137F /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		B58468CB17033371000F137F /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		B58A0CDB17031F72007EF970 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShareSDKLocalizable.strings"; sourceTree = "<group>"; };
 		B58A901316FD3DE200E4E020 /* Spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Spinner.gif; sourceTree = "<group>"; };
 		B58A901916FD3F1D00E4E020 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B58A902C16FD537000E4E020 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B58A902E16FD537E00E4E020 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B58A903016FD539900E4E020 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		B58A903316FD545300E4E020 /* AGCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AGCommon.framework; sourceTree = "<group>"; };
-		B58A903516FD545300E4E020 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareSDKLocalizable.strings; sourceTree = "<group>"; };
-		B58A903616FD545300E4E020 /* QQApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQApi.framework; sourceTree = "<group>"; };
-		B58A903716FD545300E4E020 /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
-		B58A903916FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
-		B58A903A16FD545300E4E020 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		B58A903B16FD545300E4E020 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		B58A903C16FD545300E4E020 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
+		B58B01251705C88900791B22 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		B58B01261705C88900791B22 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		B58BBE3416F89702003C9175 /* bullet_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_grey.png; sourceTree = "<group>"; };
 		B58C065016F4297200629932 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
 		B58C733416FC8C4F003598F7 /* KRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRDetailViewController.h; sourceTree = "<group>"; };
@@ -145,8 +133,16 @@
 		B58C88CC1701281600A5E3FF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B58CE98916F0AB2200EC27EA /* KRNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNews.h; sourceTree = "<group>"; };
 		B58CE98A16F0AB2200EC27EA /* KRNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNews.m; sourceTree = "<group>"; };
+		B5904F8C17047FCE00FB9A71 /* brief_case@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brief_case@2x.png"; sourceTree = "<group>"; };
+		B5904F8E17047FE000FB9A71 /* rss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss@2x.png"; sourceTree = "<group>"; };
+		B5904F9017047FED00FB9A71 /* rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rss.png; sourceTree = "<group>"; };
+		B5904F9217047FFC00FB9A71 /* brief_case.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brief_case.png; sourceTree = "<group>"; };
+		B5904F941704811F00FB9A71 /* KRBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRBookmarkViewController.h; sourceTree = "<group>"; };
+		B5904F951704812000FB9A71 /* KRBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRBookmarkViewController.m; sourceTree = "<group>"; };
 		B59F3E9216F9E11700917B90 /* KRConfigStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRConfigStore.h; sourceTree = "<group>"; };
 		B59F3E9316F9E11700917B90 /* KRConfigStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRConfigStore.m; sourceTree = "<group>"; };
+		B5A28E531705C8BC00A62CA8 /* VerticalSwipeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerticalSwipeScrollView.h; path = VerticalSwipeScrollView/VerticalSwipeScrollView.h; sourceTree = "<group>"; };
+		B5A28E541705C8BC00A62CA8 /* VerticalSwipeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerticalSwipeScrollView.m; path = VerticalSwipeScrollView/VerticalSwipeScrollView.m; sourceTree = "<group>"; };
 		B5CCE0D416EE170900DD727C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5CCE0D916EE17BA00DD727C /* launch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch1.png; sourceTree = "<group>"; };
 		B5CCE0DB16EE17C000DD727C /* launch2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch2.png; sourceTree = "<group>"; };
@@ -170,10 +166,6 @@
 				B576CC6116EB3CA700A4BA11 /* Foundation.framework in Frameworks */,
 				B576CC6316EB3CA700A4BA11 /* CoreGraphics.framework in Frameworks */,
 				B576CC6516EB3CA700A4BA11 /* CoreData.framework in Frameworks */,
-				B58A903D16FD545300E4E020 /* AGCommon.framework in Frameworks */,
-				B58A903F16FD545300E4E020 /* QQApi.framework in Frameworks */,
-				B58A904116FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
-				B58A904216FD545300E4E020 /* ShareSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,8 +219,8 @@
 		B572FA3216FB2E180065CF1F /* VirticalSwipeScroll */ = {
 			isa = PBXGroup;
 			children = (
-				B572FA2F16FB2E110065CF1F /* VerticalSwipeScrollView.h */,
-				B572FA3016FB2E110065CF1F /* VerticalSwipeScrollView.m */,
+				B5A28E531705C8BC00A62CA8 /* VerticalSwipeScrollView.h */,
+				B5A28E541705C8BC00A62CA8 /* VerticalSwipeScrollView.m */,
 			);
 			name = VirticalSwipeScroll;
 			sourceTree = "<group>";
@@ -236,6 +228,10 @@
 		B572FA3316FB2E430065CF1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B5904F9217047FFC00FB9A71 /* brief_case.png */,
+				B5904F9017047FED00FB9A71 /* rss.png */,
+				B5904F8E17047FE000FB9A71 /* rss@2x.png */,
+				B5904F8C17047FCE00FB9A71 /* brief_case@2x.png */,
 				B5CCE0D416EE170900DD727C /* README.md */,
 				B58A901316FD3DE200E4E020 /* Spinner.gif */,
 				B572FA3A16FB39050065CF1F /* DetailView.html */,
@@ -259,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				B58468C91703335E000F137F /* MBProgressHUD */,
-				B58A903216FD545300E4E020 /* ShareSDK_v1.2.5 */,
 				B572FA3316FB2E430065CF1F /* Resources */,
 				B5353E3216EB6DFA00A69DA8 /* Base64 */,
 				B5353E1516EB6C3600A69DA8 /* AFNetworking */,
@@ -320,6 +315,8 @@
 				B55321CC16F9785C002D9A93 /* KRSettingViewController.m */,
 				B59F3E9216F9E11700917B90 /* KRConfigStore.h */,
 				B59F3E9316F9E11700917B90 /* KRConfigStore.m */,
+				B5904F941704811F00FB9A71 /* KRBookmarkViewController.h */,
+				B5904F951704812000FB9A71 /* KRBookmarkViewController.m */,
 			);
 			path = WenxueCityNews;
 			sourceTree = "<group>";
@@ -340,33 +337,10 @@
 		B58468C91703335E000F137F /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				B58468CA17033371000F137F /* MBProgressHUD.h */,
-				B58468CB17033371000F137F /* MBProgressHUD.m */,
+				B58B01251705C88900791B22 /* MBProgressHUD.h */,
+				B58B01261705C88900791B22 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		B58A903216FD545300E4E020 /* ShareSDK_v1.2.5 */ = {
-			isa = PBXGroup;
-			children = (
-				B58A903316FD545300E4E020 /* AGCommon.framework */,
-				B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */,
-				B58A903616FD545300E4E020 /* QQApi.framework */,
-				B58A903716FD545300E4E020 /* Resource.bundle */,
-				B58A903816FD545300E4E020 /* SDKExport */,
-				B58A903C16FD545300E4E020 /* ShareSDK.framework */,
-			);
-			path = ShareSDK_v1.2.5;
-			sourceTree = "<group>";
-		};
-		B58A903816FD545300E4E020 /* SDKExport */ = {
-			isa = PBXGroup;
-			children = (
-				B58A903916FD545300E4E020 /* libWeChatSDK_armv7_armv7s.a */,
-				B58A903A16FD545300E4E020 /* WXApi.h */,
-				B58A903B16FD545300E4E020 /* WXApiObject.h */,
-			);
-			path = SDKExport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,8 +415,10 @@
 				B572FA3B16FB39050065CF1F /* DetailView.html in Resources */,
 				B58C733616FC8C5C003598F7 /* KRDetailViewController.xib in Resources */,
 				B58A901416FD3DE200E4E020 /* Spinner.gif in Resources */,
-				B58A903E16FD545300E4E020 /* ShareSDKLocalizable.strings in Resources */,
-				B58A904016FD545300E4E020 /* Resource.bundle in Resources */,
+				B5904F8D17047FCE00FB9A71 /* brief_case@2x.png in Resources */,
+				B5904F8F17047FE000FB9A71 /* rss@2x.png in Resources */,
+				B5904F9117047FED00FB9A71 /* rss.png in Resources */,
+				B5904F9317047FFC00FB9A71 /* brief_case.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +429,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58468CC170333D0000F137F /* MBProgressHUD.m in Sources */,
 				B52E012B16FB3B0F00A42462 /* KRDetailViewController.m in Sources */,
 				B576CC6D16EB3CA700A4BA11 /* main.m in Sources */,
 				B576CC7116EB3CA700A4BA11 /* KRAppDelegate.m in Sources */,
@@ -475,23 +450,13 @@
 				B5CE38D416F366DC006A7868 /* KRNewsViewController.m in Sources */,
 				B55321CD16F9785C002D9A93 /* KRSettingViewController.m in Sources */,
 				B59F3E9416F9E11700917B90 /* KRConfigStore.m in Sources */,
-				B572FA3116FB2E110065CF1F /* VerticalSwipeScrollView.m in Sources */,
+				B5904F961704812000FB9A71 /* KRBookmarkViewController.m in Sources */,
+				B58B01271705C88900791B22 /* MBProgressHUD.m in Sources */,
+				B5A28E551705C8BC00A62CA8 /* VerticalSwipeScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B58A903416FD545300E4E020 /* ShareSDKLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B58A903516FD545300E4E020 /* en */,
-				B58A0CDB17031F72007EF970 /* zh-Hans */,
-			);
-			name = ShareSDKLocalizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B576CC9116EB3CA700A4BA11 /* Debug */ = {
@@ -556,18 +521,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ShareSDK_v1.2.5\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
 				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ShareSDK_v1.2.5/SDKExport\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "DB8634BF-209A-4BAF-ACEE-A274712A7CC9";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -580,18 +539,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Haihua Xiao (W8PH2GWMB5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ShareSDK_v1.2.5\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WenxueCityNews/WenxueCityNews-Prefix.pch";
 				INFOPLIST_FILE = "WenxueCityNews/WenxueCityNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ShareSDK_v1.2.5/SDKExport\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "DB8634BF-209A-4BAF-ACEE-A274712A7CC9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

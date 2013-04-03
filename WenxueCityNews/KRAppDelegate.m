@@ -10,7 +10,8 @@
 #import "KRNewsListController.h"
 #import "KRNewsStore.h"
 #import "KRConfigStore.h"
-#import <ShareSDK/ShareSDK.h>
+#import "KRSettingViewController.h"
+#import "KRBookmarkViewController.h"
 
 @implementation KRAppDelegate
 
@@ -22,37 +23,40 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+            
+    KRNewsListController *hc = [[KRNewsListController alloc] init];
+    UINavigationController* nhc = [[UINavigationController alloc] initWithRootViewController:hc];
+    nhc.delegate = self;
     
-    [ShareSDK registerApp:@"13e88b9c255"];
+    nhc.navigationBar.tintColor = APP_COLOR;
+    nhc.toolbar.tintColor = APP_COLOR;
     
-    // Create a ItemsViewController
-    listController = [[KRNewsListController alloc] init];
+    KRBookmarkViewController *bvc = [[KRBookmarkViewController alloc] init];
+    UINavigationController* nbvc = [[UINavigationController alloc] initWithRootViewController:bvc];
+    nbvc.delegate = self;
     
-    // Create an instance of a UINavigationController
-    // its stack contains only itemsViewController
-    navigationController = [[UINavigationController alloc] initWithRootViewController:listController];
-    navigationController.delegate = self;
+    nbvc.navigationBar.tintColor = APP_COLOR;
+    nbvc.toolbar.tintColor = APP_COLOR;
     
-    navigationController.navigationBar.tintColor = APP_COLOR;
-    navigationController.toolbar.tintColor = APP_COLOR;
-
-    // Place navigation controller's view in the window hierarchy
-    [[self window] setRootViewController:navigationController];
+    KRSettingViewController *svc = [[KRSettingViewController alloc] init];
+    UINavigationController* nsvc = [[UINavigationController alloc] initWithRootViewController:svc];
+    nsvc.delegate = self;
+    
+    nsvc.navigationBar.tintColor = APP_COLOR;
+    nsvc.toolbar.tintColor = APP_COLOR;
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    //[[UITabBar appearance] setTintColor:APP_COLOR];
+    
+    NSArray *viewControllers = [NSArray arrayWithObjects:nhc, nbvc, nsvc, nil];
+    [tabBarController setViewControllers:viewControllers];
+    
+    [[self window] setRootViewController:tabBarController];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-        
+    
     return YES;
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    return [ShareSDK handleOpenURL:url wxDelegate:self];
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [ShareSDK handleOpenURL:url wxDelegate:self];
 }
 
 - (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -83,10 +87,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    BOOL visible = navigationController.visibleViewController == listController;
-    if(visible) {
-        [listController refreshNews:nil];
-    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

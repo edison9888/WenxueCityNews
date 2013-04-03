@@ -193,6 +193,10 @@
     return [allItems objectAtIndex:index];
 }
 
+- (BOOL)loading
+{
+    return loading;
+}
 
 - (void) loadNews: (int)from to:(int)to max:(int)max appendToTop:(BOOL)appendToTop force:(BOOL)force withHandler:(void (^)(NSArray *newsArray, NSError *error))handler
 {
@@ -208,9 +212,7 @@
         return;
     }
     loading = YES;
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
+        
     NSString * url = [[NSString alloc] initWithFormat:BASE_URL_PATTERN, from, to, max];
     NSURL* targetUrl = [[NSURL alloc] initWithString: url];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetUrl];
@@ -244,13 +246,12 @@
                 [ret addObject:news];
             }
         }
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         loading = NO;
         dateFetched = now;
         handler(ret, nil);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        loading = NO;        
+        handler(nil, error);
+        loading = NO;
     }];
     
     [operation start];

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ShareSDK/ShareConfig.h>   
 #import "KRAppDelegate.h"
 
 int main(int argc, char *argv[])

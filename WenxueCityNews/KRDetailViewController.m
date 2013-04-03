@@ -29,7 +29,6 @@
 #import "KRConfigStore.h"
 #import "KRNewsStore.h"
 #import "KRNews.h"
-#import <ShareSDK/ShareSDK.h>
 
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
@@ -46,26 +45,31 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 @synthesize verticalSwipeScrollView, startIndex;
 @synthesize previousPage, nextPage;
 
+-(id)init
+{
+    if(self = [super init]) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLenient:YES];
+        [dateFormatter setDoesRelativeDateFormatting:YES];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+    return self;
+}
+
 -(void)willAppearIn:(UINavigationController *)navigationController
 {
-    self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
-    [self.view addSubview:verticalSwipeScrollView];
 }
 
 - (void)viewDidLoad
 {
     headerImageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(180));
     
-    infoLabel = [[UILabel alloc] init];
-    [infoLabel setFont:[UIFont boldSystemFontOfSize:12]];
-    infoLabel.frame =  CGRectMake(0.0, 0.0, 128, 32);
-    infoLabel.backgroundColor = [UIColor clearColor];
-    infoLabel.textColor = [UIColor whiteColor];
-    UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithCustomView:infoLabel];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)];
+    self.navigationItem.rightBarButtonItem = shareButton;
 
-    UIBarButtonItem* space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
-    UIBarButtonItem *shareButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews:)] autorelease];
-    [self setToolbarItems:[NSArray arrayWithObjects: infoItem, space, shareButtonItem, nil]];
+    self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
+    [self.view addSubview:verticalSwipeScrollView];
 }
 
 - (IBAction)shareNews:(id)sender
@@ -73,32 +77,38 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     KRNews* news = [[KRNewsStore sharedStore] itemAt: self.verticalSwipeScrollView.currentPageIndex];
     NSString* htmlString = [self htmlContentOfNews: news];
     
-    id publishContent = [ShareSDK publishContent:htmlString
-                                  defaultContent:@""
-                                           image:nil
-                                    imageQuality:0.8
-                                       mediaType:SSPublishContentMediaTypeNews
-                                           title:[NSString stringWithFormat:@"[分享自文学城新闻]%@", [news title]]
-                                             url:nil
-                                    musicFileUrl:nil
-                                         extInfo:nil
-                                        fileData:nil];
-    
-    id shareList = [ShareSDK getShareListWithType:ShareTypeMail, ShareTypeFacebook, ShareTypeGooglePlus, nil];
-    [ShareSDK showShareActionSheet:self
-                         shareList:shareList
-                           content:publishContent
-                    statusBarTips:YES
-                    oneKeyShareList:nil
-                    shareViewStyle:ShareViewStyleAppRecommend
-                    shareViewTitle:@"内容分享"
-                            result:^(ShareType type, SSPublishContentState state, id statusInfo, id error, BOOL end) {
-                                if (state == SSPublishContentStateSuccess) {
-                                    NSLog(@"成功!");
-                                } else if(state == SSPublishContentStateFail) {
-                                    NSLog(@"失败!");
-                                }
-                            }];
+	MFMailComposeViewController *tempMailCompose = [[MFMailComposeViewController alloc] init];
+	
+	tempMailCompose.mailComposeDelegate = self;	
+	[tempMailCompose setSubject:[NSString stringWithFormat:@"[分享自文学城新闻]%@", [news title]]];
+	[tempMailCompose setMessageBody:htmlString isHTML:YES];
+	
+	[self presentModalViewController:tempMailCompose animated:YES];
+    [tempMailCompose release];
+}
+
+// Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+	// Notifies users about errors associated with the interface
+	switch (result)
+	{
+		case MFMailComposeResultCancelled:
+			NSLog(@"Result: canceled");
+			break;
+		case MFMailComposeResultSaved:
+			NSLog(@"Result: saved");
+			break;
+		case MFMailComposeResultSent:
+			NSLog(@"Result: sent");
+			break;
+		case MFMailComposeResultFailed:
+			NSLog(@"Result: failed");
+			break;
+		default:
+			NSLog(@"Result: not sent");
+			break;
+	}
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (void) rotateImageView:(UIImageView*)imageView angle:(CGFloat)angle
@@ -159,16 +169,12 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     label.textColor = [UIColor whiteColor];
     label.text = [news title];
     self.navigationItem.titleView = label;
-
-    //self.navigationItem.title = [[sharedStore itemAt:page] title];
     
     if (page > 0)
         headerLabel.text = [[sharedStore itemAt:page-1] title];
     if (page != [self pageCount]-1)
         footerLabel.text = [[sharedStore itemAt:page+1] title];
-    
-    [infoLabel setText: [NSString stringWithFormat:@"%d/%d", (page + 1), [self pageCount]]];
-    
+        
     return webView;
 }
 
@@ -204,8 +210,6 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     int fontSize = [[KRConfigStore sharedStore] textSize];
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970: [news dateCreated]];
-    NSDateFormatter * dateFormatter = [[[NSDateFormatter alloc] init]autorelease];
-    [dateFormatter setDateFormat:@"M月dd日 h:mm"];
     NSString * dateString = [dateFormatter stringFromDate: date];
     
     htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- title -->" withString:[news title]];
@@ -255,6 +259,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     [verticalSwipeScrollView release];
     [previousPage release];
     [nextPage release];
+    
+    [dateFormatter release];
     
     [super dealloc];
 }
